@@ -79,6 +79,19 @@
     animation:sparkFade .8s ease-out forwards}
   @keyframes sparkFade{0%{opacity:1;transform:scale(.6) rotate(0)}100%{opacity:0;transform:scale(1.5) rotate(40deg) translateY(-14px)}}
 
+  /* ===== 천마(天馬) 질주 피날레 ===== */
+  .cheonma{position:fixed;left:0;top:36vh;width:128px;height:auto;z-index:78;opacity:0;pointer-events:none;transform:translateX(-42vw);
+    filter:drop-shadow(0 6px 10px rgba(154,110,19,.4)) drop-shadow(0 0 15px rgba(244,225,160,.65))}
+  .cheonma.gallop{animation:cheonmaRun 2.9s cubic-bezier(.32,.06,.4,1) forwards}
+  @keyframes cheonmaRun{
+    0%{opacity:0;transform:translateX(-42vw) translateY(4px) rotate(-3deg)}
+    12%{opacity:1}
+    25%{transform:translateX(-6vw) translateY(-16px) rotate(-5deg)}
+    50%{transform:translateX(40vw) translateY(2px) rotate(-2deg)}
+    75%{transform:translateX(82vw) translateY(-14px) rotate(-5deg)}
+    90%{opacity:1}
+    100%{opacity:0;transform:translateX(128vw) translateY(2px) rotate(-2deg)}}
+
   /* ============ 왕명 두루마리 오프닝 ============ */
   .decree{position:fixed;inset:0;height:100dvh;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
     padding:24px;overflow:hidden;
@@ -398,6 +411,20 @@
 <body>
   <canvas id="fx"></canvas>
   <div class="lightbar" id="lightbar" aria-hidden="true"></div>
+  <svg class="cheonma" id="cheonma" viewBox="0 0 120 96" aria-hidden="true">
+    <defs><linearGradient id="chmG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFDF6"/><stop offset="1" stop-color="#EAD9A6"/></linearGradient></defs>
+    <g fill="none" stroke="#C9971F" stroke-width="3.2" stroke-linecap="round">
+      <path d="M46,60 C40,66 34,71 25,79"/><path d="M50,61 C49,67 47,72 43,77"/><path d="M80,58 C84,65 87,71 95,79"/><path d="M77,59 C77,66 75,71 71,77"/>
+    </g>
+    <g fill="none" stroke="#C9971F" stroke-width="2.4" stroke-linecap="round">
+      <path d="M37,51 C28,51 20,56 12,65"/><path d="M38,54 C30,57 24,62 17,70"/><path d="M39,57 C32,61 27,66 22,73"/>
+    </g>
+    <path fill="url(#chmG)" stroke="#C9971F" stroke-width="1.5" stroke-linejoin="round" d="M84,48 C88,43 91,39 94,36 C95,37 96,38 97,39 L107,41 C107,39 107,37 106,36 C103,33 100,31 97,30 L95,30 L97,23 L99,30 C99,31 98,32 96,33 C92,35 86,40 80,44 C66,41 52,41 44,44 C39,46 36,50 37,55 C38,59 43,62 49,63 C60,64 70,63 79,60 C82,58 84,54 84,48 Z"/>
+    <g fill="none" stroke="#C9971F" stroke-width="1.8" stroke-linecap="round">
+      <path d="M89,37 C87,34 85,33 82,34"/><path d="M84,41 C82,38 80,37 77,38"/><path d="M80,44 C78,41 76,41 73,42"/>
+    </g>
+    <circle cx="99" cy="34" r="1" fill="#3B2A16"/>
+  </svg>
 
   <!-- 왕명 오프닝 -->
   <div class="decree" id="decree">
@@ -926,11 +953,13 @@ document.getElementById('nope').addEventListener('click',()=>{
   if(nopeTries>=3) setTimeout(()=>doPledge('화랑의 인도로 맹세 처리되었소 ✦'), 700);
 });
 
-/* ===== 티어3: 마지막 스크롤 불꽃 피날레 ===== */
+/* ===== 티어3: 마지막 스크롤 불꽃 피날레 + 천마 질주 ===== */
+function runCheonma(){ const h=document.getElementById('cheonma'); if(!h||reduce) return;
+  h.classList.remove('gallop'); void h.offsetWidth; h.classList.add('gallop'); }
 if('IntersectionObserver' in window && !reduce){
   let fired=false;
   const ft=document.querySelector('.foot');
-  if(ft){ new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting && document.body.classList.contains('revealed') && !fired){ fired=true; fireworks(6); } }); },{threshold:0.55}).observe(ft); }
+  if(ft){ new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting && document.body.classList.contains('revealed') && !fired){ fired=true; runCheonma(); fireworks(6); } }); },{threshold:0.55}).observe(ft); }
 }
 
 /* ===== toast ===== */
