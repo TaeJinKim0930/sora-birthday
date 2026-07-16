@@ -39,6 +39,34 @@
     body{background:linear-gradient(180deg,#F7E3E6,#EFD9E4);min-height:100vh;padding:26px 15px 46px;display:flex;justify-content:center}
     .poster{max-width:460px;min-height:auto;border-radius:6px;box-shadow:0 24px 60px -24px rgba(120,50,80,.5)}
   }
+  /* ===== 티어1 앰비언트 화려함 ===== */
+  .poster > *{position:relative;z-index:1}
+  .aurora{position:absolute;inset:-12%;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(38% 28% at 20% 14%, rgba(246,168,196,.55), transparent 70%),
+      radial-gradient(44% 30% at 82% 30%, rgba(235,203,111,.45), transparent 70%),
+      radial-gradient(40% 30% at 55% 76%, rgba(201,184,232,.45), transparent 70%),
+      radial-gradient(34% 26% at 12% 88%, rgba(62,155,144,.22), transparent 70%);
+    filter:blur(34px);animation:auroraDrift 36s ease-in-out infinite alternate}
+  @keyframes auroraDrift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(3%,-2.5%,0) scale(1.09)}100%{transform:translate3d(-2.5%,2%,0) scale(1.04)}}
+  #amb{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+  .goldtext{background:linear-gradient(110deg,#F5E3A8,#C9A227 38%,#FFF6D8 50%,#C9A227 62%,#EBCB6F);background-size:230% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:goldshine 5.5s ease-in-out infinite}
+  @keyframes goldshine{0%,58%{background-position:132% 0}100%{background-position:-32% 0}}
+  .crown-svg{animation:crownGlow 3.8s ease-in-out infinite}
+  @keyframes crownGlow{0%,100%{filter:drop-shadow(0 6px 10px rgba(201,162,39,.45))}50%{filter:drop-shadow(0 8px 18px rgba(201,162,39,.72))}}
+  .script-name{position:relative}
+  .script-name::after{content:"";position:absolute;inset:-6% -4%;pointer-events:none;
+    background:linear-gradient(114deg,transparent 42%,rgba(255,255,255,.72) 50%,transparent 58%);
+    -webkit-mask:linear-gradient(#000 0 0);transform:translateX(-135%);animation:sheen 6s ease-in-out 1.2s infinite}
+  @keyframes sheen{0%,60%{transform:translateX(-135%)}92%,100%{transform:translateX(135%)}}
+  /* ===== 티어2 등장 안무 ===== */
+  .lightbar{position:fixed;left:0;right:0;top:0;height:42vh;z-index:70;pointer-events:none;opacity:0;
+    background:radial-gradient(62% 100% at 50% 0,rgba(255,247,214,.9),rgba(246,168,196,.25) 45%,transparent 72%)}
+  .lightbar.go{animation:lbSweep 1.15s ease-out forwards}
+  @keyframes lbSweep{0%{opacity:0;transform:translateY(-46vh)}18%{opacity:.95}100%{opacity:0;transform:translateY(128vh)}}
+  .revealed .crown-svg{animation:crownPop .75s cubic-bezier(.34,1.56,.64,1) both, crownGlow 3.8s ease-in-out .8s infinite}
+  @keyframes crownPop{0%{opacity:0;transform:scale(.35) rotate(-14deg)}62%{transform:scale(1.14) rotate(5deg)}100%{opacity:1;transform:none}}
 
   #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:80}
   .spark{position:fixed;z-index:79;pointer-events:none;color:#E8C766;text-shadow:0 0 6px #F5E3A8;font-size:13px;
@@ -140,9 +168,14 @@
   /* ============ D-day 메달리온 ============ */
   .medal{display:flex;flex-direction:column;align-items:center;gap:4px;margin:22px 0 0}
   .medal-ring{width:132px;height:132px;border-radius:50%;display:grid;place-items:center;position:relative;
-    background:conic-gradient(from 0deg,#F5E3A8,#C9A227,#F5E3A8,#C9A227,#F5E3A8);
     box-shadow:0 10px 22px -8px rgba(201,162,39,.55)}
-  .medal-in{width:112px;height:112px;border-radius:50%;background:#FFFDF6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+  .medal-ring::before{content:"";position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,#F5E3A8,#C9A227,#FFF6D8,#C9A227,#F5E3A8,#C9A227,#F5E3A8);animation:spin 15s linear infinite}
+  .medal-ring::after{content:"";position:absolute;inset:-10px;border-radius:50%;pointer-events:none;z-index:-1;
+    background:radial-gradient(circle,rgba(235,203,111,.5),transparent 70%);animation:halo 3.6s ease-in-out infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes halo{0%,100%{opacity:.5;transform:scale(.94)}50%{opacity:.9;transform:scale(1.06)}}
+  .medal-in{position:relative;z-index:1;width:112px;height:112px;border-radius:50%;background:#FFFDF6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
   .medal-crown{font-size:20px;line-height:1}
   .medal-d{font-family:var(--disp);font-size:31px;color:var(--rose-deep);line-height:1.15}
   .medal-cap{font-family:var(--ui);font-size:10px;color:#B08A1E;letter-spacing:.3em;text-indent:.3em}
@@ -312,6 +345,7 @@
 </head>
 <body>
   <canvas id="fx"></canvas>
+  <div class="lightbar" id="lightbar" aria-hidden="true"></div>
 
   <!-- 칙령 오프닝 -->
   <div class="decree" id="decree">
@@ -346,6 +380,8 @@
 
   <!-- ============ 포스터 ============ -->
   <main class="poster">
+    <div class="aurora" aria-hidden="true"></div>
+    <canvas id="amb" aria-hidden="true"></canvas>
 
     <svg class="eave" viewBox="0 0 300 22" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <defs>
@@ -615,7 +651,51 @@ function tick(){
 
 /* ===== 칙령 오프닝 ===== */
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ===== 티어1: 부유 금가루 앰비언트 캔버스 (저전력 게이팅) ===== */
+(function(){
+  if(reduce) return;
+  const c=document.getElementById('amb'); const poster=document.querySelector('.poster');
+  if(!c||!poster) return; const g=c.getContext('2d');
+  const dpr=Math.min(1.6,window.devicePixelRatio||1);
+  let W=0,H=0,ps=[],raf=null,t=0;
+  const N=((navigator.hardwareConcurrency||4)<=4)?12:18;
+  const COL=['rgba(233,203,111,','rgba(246,168,196,','rgba(255,250,240,','rgba(201,184,232,'];
+  function size(){ W=window.innerWidth; H=window.innerHeight; c.width=Math.max(1,W*dpr); c.height=Math.max(1,H*dpr); g.setTransform(dpr,0,0,dpr,0,0); }
+  function init(){ ps=Array.from({length:N},()=>({x:Math.random()*W,y:Math.random()*H,r:1.4+Math.random()*3.4,
+    vy:-(.08+Math.random()*.22),vx:(Math.random()-.5)*.12,ph:Math.random()*6.28,sp:.5+Math.random()*1.1,c:COL[(Math.random()*COL.length)|0]})); }
+  function draw(){ g.clearRect(0,0,W,H); t+=.016;
+    for(const p of ps){ p.y+=p.vy; p.x+=p.vx+Math.sin(t*p.sp+p.ph)*.14;
+      if(p.y<-8){p.y=H+8;p.x=Math.random()*W;} if(p.x<-8)p.x=W+8; if(p.x>W+8)p.x=-8;
+      const a=.3+.4*(.5+.5*Math.sin(t*p.sp*1.3+p.ph)), R=p.r*3;
+      const rg=g.createRadialGradient(p.x,p.y,0,p.x,p.y,R);
+      rg.addColorStop(0,p.c+a+')'); rg.addColorStop(1,p.c+'0)');
+      g.fillStyle=rg; g.beginPath(); g.arc(p.x,p.y,R,0,6.29); g.fill(); }
+    raf=requestAnimationFrame(draw); }
+  function start(){ if(!raf&&W>0) draw(); } function stop(){ if(raf){cancelAnimationFrame(raf);raf=null;} }
+  size(); init(); start();
+  addEventListener('resize',()=>{size();init();});
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  if('IntersectionObserver' in window){ new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?start():stop());},{threshold:0}).observe(poster); }
+})();
 let opened=false;
+/* ===== 티어2: 계단식 등장 + 금빛 라이트바 / 티어3: 불꽃놀이 ===== */
+function cascade(){
+  document.querySelectorAll('.poster > *').forEach((el,i)=>{
+    if(el.classList.contains('aurora')||el.id==='amb') return;
+    el.style.animationDelay=(Math.min(i,16)*70)+'ms';
+  });
+  if(reduce) return;
+  const lb=document.getElementById('lightbar');
+  if(lb){ lb.classList.remove('go'); lb.getBoundingClientRect(); lb.classList.add('go'); }
+}
+function fireworks(times=7){ if(reduce){ burst(innerWidth/2, innerHeight*0.4, 40); return; }
+  let i=0; (function go(){ if(i++>=times) return;
+    burst(innerWidth*(0.12+Math.random()*0.76), innerHeight*(0.18+Math.random()*0.46), 30+((Math.random()*16)|0));
+    setTimeout(go, 150+Math.random()*170); })();
+}
+function revealPoster(){ document.body.classList.add('revealed'); cascade(); }
+
 function openDecree(){
   if(opened) return; opened=true;
   const d=document.getElementById('decree');
@@ -623,11 +703,11 @@ function openDecree(){
   burst(innerWidth/2, innerHeight*0.42, 40);
   setTimeout(()=>{ burst(innerWidth/2, innerHeight*0.3, 52);
     d.classList.add('gone'); setTimeout(()=>d.setAttribute('hidden',''),900);
-    document.body.classList.add('revealed');
+    revealPoster();
   }, reduce?0:1750);
 }
 const sw=document.getElementById('scrollWrap');
-if(reduce){ document.getElementById('decree').setAttribute('hidden',''); document.body.classList.add('revealed'); }
+if(reduce){ document.getElementById('decree').setAttribute('hidden',''); revealPoster(); }
 else{
   sw.addEventListener('click', openDecree, {once:true});
   sw.addEventListener('keydown', function kd(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); sw.removeEventListener('keydown',kd); openDecree(); } });
@@ -649,7 +729,8 @@ if(!reduce){
 /* ===== 왕관 탭 → 보석 팡 ===== */
 document.getElementById('crown').addEventListener('click',e=>{
   const r=e.currentTarget.getBoundingClientRect();
-  burst(r.left+r.width/2, r.top+r.height/2, 24);
+  burst(r.left+r.width/2, r.top+r.height/2, 40);
+  fireworks(3);
   toast('❀ 소라 공주 천세!');
 });
 
@@ -666,10 +747,11 @@ document.querySelectorAll('.cnd').forEach(c=>{
       cheer.classList.add('show');
     }else{
       const r=c.getBoundingClientRect();
-      burst(r.left, r.top, 60); setTimeout(()=>burst(innerWidth/2, r.top+40, 40), 250);
+      burst(r.left, r.top, 60);
+      fireworks(9);
       cheer.textContent='🎉 소원이 접수되었습니다 — 생일 축하해요, 소라 공주님! 👸';
       cheer.classList.add('show');
-      toast('👑 왕실 공식 소원 접수 완료');
+      toast('🏮 왕실 공식 소원 접수 · 소라 공주 천세!');
     }
   });
 });
@@ -701,6 +783,13 @@ document.getElementById('nope').addEventListener('click',()=>{
   pledgeAlert(NOPE_MSGS[Math.min(nopeTries,NOPE_MSGS.length)-1]);
   if(nopeTries>=3) setTimeout(()=>doPledge('근위병에 의해 맹세 처리되었소 💂👑'), 700);
 });
+
+/* ===== 티어3: 마지막 스크롤 불꽃 피날레 ===== */
+if('IntersectionObserver' in window && !reduce){
+  let fired=false;
+  const ft=document.querySelector('.foot');
+  if(ft){ new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting && document.body.classList.contains('revealed') && !fired){ fired=true; fireworks(6); } }); },{threshold:0.55}).observe(ft); }
+}
 
 /* ===== toast ===== */
 let tT=null;
