@@ -14,13 +14,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Great+Vibes&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Nanum+Brush+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>
   :root{
-    --rose:#E85C8F; --rose-deep:#C94477; --blush:#FFE3EC; --paper:#FFF9F5; --pearl:#FFFDF9;
+    --rose:#E0568A; --rose-deep:#C1436A; --blush:#FFE3EC; --paper:#FFF8F1; --pearl:#FFFDF9;
     --gold:#C9A227; --gold-lt:#EBCB6F; --gold-pale:#F5E3A8; --lav:#C9B8E8;
-    --ink:#5C3A47; --sub:#A98595; --line:#F2D8DE;
-    --disp:'Song Myung',serif; --body:'Gowun Batang',serif; --script:'Great Vibes',cursive; --ui:'Gowun Dodum',sans-serif;
+    --jade:#3E9B90; --jaju:#9B2E5A; --danblue:#3C5A99; --dangreen:#2F8F7A;
+    --ink:#4A2E39; --sub:#A98595; --line:#F2D8DE;
+    --disp:'Song Myung',serif; --body:'Gowun Batang',serif; --script:'Nanum Brush Script',cursive; --ui:'Gowun Dodum',sans-serif;
     --safe-b:env(safe-area-inset-bottom); --safe-t:env(safe-area-inset-top);
     --goldgrad:linear-gradient(180deg,#F5E3A8 0%,#C9A227 55%,#E8C766 100%);
   }
@@ -98,14 +99,16 @@
 
   /* ============ 공용 장식 ============ */
   .goldtext{background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .ornk{display:flex;align-items:center;gap:12px;justify-content:center;color:#D9BC6B;font-size:15px;margin:6px 0}
-  .ornk::before,.ornk::after{content:"";flex:0 0 56px;border-top:1.5px solid #E4CE8E}
+  .eave{display:block;width:100%;height:auto}
+  .ornk{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--jaju);font-size:15px;margin:8px 0}
+  .ornk::before,.ornk::after{content:"";flex:0 0 58px;height:2.5px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--jade),var(--gold),var(--jaju))}
+  .ornk::after{transform:scaleX(-1)}
   .sec{padding:26px 22px 6px}
   .sec-eyebrow{font-family:var(--ui);text-align:center;font-size:11px;letter-spacing:.42em;text-indent:.42em;color:#C9A227;margin-bottom:6px}
   .sec-title{font-family:var(--disp);text-align:center;font-size:24px;color:var(--ink);letter-spacing:.1em;margin:0 0 4px}
 
   /* ============ 크레스트 헤더 ============ */
-  .crest{position:relative;padding:calc(38px + var(--safe-t)) 22px 10px;text-align:center;
+  .crest{position:relative;padding:calc(14px + var(--safe-t)) 22px 10px;text-align:center;
     background:
       radial-gradient(90% 70% at 50% 0%, #FBD9E4 0%, transparent 70%),
       transparent}
@@ -116,9 +119,9 @@
   .crown-svg{width:88px;height:auto;display:block;margin:4px auto 2px;cursor:pointer;-webkit-tap-highlight-color:transparent;
     filter:drop-shadow(0 6px 10px rgba(201,162,39,.45));transition:transform .18s}
   .crown-svg:active{transform:scale(1.12) rotate(-4deg)}
-  .royal-eyebrow{font-family:var(--ui);font-size:11.5px;letter-spacing:.52em;text-indent:.52em;color:#B08A1E}
-  .script-name{font-family:var(--script);font-size:52px;line-height:1.05;color:var(--rose-deep);margin:6px 0 0;text-shadow:0 2px 14px rgba(232,92,143,.25)}
-  h1.balltitle{font-family:var(--disp);font-weight:400;font-size:33px;letter-spacing:.06em;margin:6px 0 4px;line-height:1.3}
+  .royal-eyebrow{font-family:var(--ui);font-size:11.5px;letter-spacing:.52em;text-indent:.52em;color:var(--jaju)}
+  .script-name{font-family:var(--script);font-size:60px;line-height:1;color:var(--rose-deep);margin:2px 0 0;text-shadow:0 2px 14px rgba(193,67,106,.25)}
+  h1.balltitle{font-family:var(--disp);font-weight:400;font-size:27px;letter-spacing:.04em;margin:2px 0 4px;line-height:1.35}
   .ball-sub{font-family:var(--ui);font-size:13.5px;color:var(--sub);letter-spacing:.12em}
   .when-strip{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
   .when-strip span{font-family:var(--ui);font-size:12.5px;color:#8A5F44;background:#FCF3DC;border:1px solid #EBD9A8;border-radius:999px;padding:7px 14px}
@@ -127,7 +130,7 @@
   .edict{margin:14px 18px 0;padding:24px 22px;position:relative;text-align:center;
     background:radial-gradient(circle at 10px 10px,#FBEFDB 1.3px,transparent 1.4px) 0 0/24px 24px,#FFFBF0;
     border:1.5px solid #E4CE8E;border-radius:4px}
-  .edict::before,.edict::after{content:"❦";position:absolute;color:#D9BC6B;font-size:16px;left:50%;transform:translateX(-50%)}
+  .edict::before,.edict::after{content:"❀";position:absolute;color:var(--jaju);font-size:16px;left:50%;transform:translateX(-50%)}
   .edict::before{top:-9px;background:#FFF6ED;padding:0 10px}
   .edict::after{bottom:-10px;background:#FFF6ED;padding:0 10px}
   .edict p{margin:0;font-size:14.5px;line-height:2.05;word-break:keep-all}
@@ -193,7 +196,7 @@
   .m-items{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
   .mi{font-family:var(--ui);font-size:12.5px;padding:6px 12px;border-radius:999px;border:1px solid}
   .mi.on{color:#8F3E62;background:linear-gradient(120deg,#FCE3EC,#FBEFF4);border-color:#F0BFD2;font-weight:700}
-  .mi.on::before{content:"♛ ";color:#C9A227}
+  .mi.on::before{content:"❀ ";color:#C9A227}
   .mi.off{color:#A79A9E;background:#F7F3F4;border-color:#E7DEE1}
   .mi.q::after{content:" ?";color:#C9A227}
   .m-legend{display:flex;gap:14px;justify-content:center;margin:4px 0 12px;font-family:var(--ui);font-size:11px;color:var(--sub);position:relative;z-index:1}
@@ -329,14 +332,14 @@
         <div class="pm-inner">
           <div class="pm-title">칙 령</div>
           <div class="pm-div"></div>
-          <div class="pm-script">Princess Sora</div>
+          <div class="pm-script">소라 공주</div>
           <p class="pm-line">왕국의 어여쁜 공주 <b>김소라</b>의<br>탄신을 축하하는 연회를 여노니,<br>왕실의 일원들은 <b>양양 별궁</b>으로<br>모두 모이시오.</p>
           <div class="pm-div"></div>
           <p class="pm-sm">2026. 8. 1 ~ 8. 2 · 양양 별궁</p>
         </div>
       </div>
       <div class="rod"></div>
-      <div class="seal2"><div class="seal2-c">♛</div></div>
+      <div class="seal2"><div class="seal2-c">❀</div></div>
     </div>
     <div class="dk-hint">📜 인장을 눌러 칙령을 펼치시오</div>
   </div>
@@ -344,32 +347,52 @@
   <!-- ============ 포스터 ============ -->
   <main class="poster">
 
+    <svg class="eave" viewBox="0 0 300 22" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs>
+        <linearGradient id="giwaTile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1E6C6"/><stop offset="1" stop-color="#D9C79A"/></linearGradient>
+        <pattern id="mak" x="0" y="10" width="20" height="12" patternUnits="userSpaceOnUse">
+          <circle cx="10" cy="6" r="6" fill="url(#giwaTile)" stroke="#B08A1E" stroke-width="1"/>
+          <circle cx="10" cy="6" r="2.1" fill="#C1436A"/>
+        </pattern>
+      </defs>
+      <rect x="0" y="0" width="300" height="4" fill="#3E9B90"/>
+      <rect x="0" y="4" width="300" height="2.4" fill="#C9A227"/>
+      <rect x="0" y="6.4" width="300" height="3.4" fill="#9B2E5A"/>
+      <rect x="0" y="10" width="300" height="12" fill="url(#mak)"/>
+    </svg>
+
     <header class="crest">
       <div class="frame"></div>
-      <span class="fl tl">❦</span><span class="fl tr">❦</span>
-      <svg class="crown-svg" id="crown" viewBox="0 0 96 62" aria-label="왕관">
-        <path d="M8,50 L4,20 L26,34 L48,10 L70,34 L92,20 L88,50 Z" fill="url(#gg)" stroke="#B08A1E" stroke-width="2" stroke-linejoin="round"/>
-        <rect x="8" y="50" width="80" height="8" rx="3" fill="url(#gg)" stroke="#B08A1E" stroke-width="1.6"/>
-        <circle cx="48" cy="8" r="4.5" fill="#F08CAD" stroke="#C94477" stroke-width="1.4"/>
-        <circle cx="4.5" cy="18" r="3.4" fill="#C9B8E8" stroke="#9B85C9" stroke-width="1.2"/>
-        <circle cx="91.5" cy="18" r="3.4" fill="#C9B8E8" stroke="#9B85C9" stroke-width="1.2"/>
-        <circle cx="30" cy="54" r="2.6" fill="#F08CAD"/><circle cx="48" cy="54" r="2.6" fill="#fff"/><circle cx="66" cy="54" r="2.6" fill="#F08CAD"/>
+      <span class="fl tl">❀</span><span class="fl tr">❀</span>
+      <svg class="crown-svg" id="crown" viewBox="0 0 100 66" aria-label="화관">
+        <g stroke="#C9A227" stroke-width="1.6"><path d="M22,42 V55"/><path d="M78,42 V55"/></g>
+        <circle cx="22" cy="57" r="2.6" fill="#9B2E5A"/><circle cx="78" cy="57" r="2.6" fill="#3E9B90"/>
+        <path d="M18,39 Q50,49 82,39 L82,47 Q50,57 18,47 Z" fill="url(#gg)" stroke="#B08A1E" stroke-width="1.4"/>
+        <g stroke="#B08A1E" stroke-width="1.1">
+          <circle cx="29" cy="35" r="4.2" fill="url(#gg)"/>
+          <circle cx="40" cy="30" r="5" fill="url(#gg)"/>
+          <circle cx="60" cy="30" r="5" fill="url(#gg)"/>
+          <circle cx="71" cy="35" r="4.2" fill="url(#gg)"/>
+        </g>
+        <circle cx="50" cy="21" r="8" fill="#F6A8C4" stroke="#C1436A" stroke-width="1.6"/>
+        <circle cx="50" cy="21" r="3.3" fill="url(#gg)" stroke="#B08A1E" stroke-width=".8"/>
+        <circle cx="33" cy="44" r="2.3" fill="#3E9B90"/><circle cx="50" cy="46" r="2.6" fill="#9B2E5A"/><circle cx="67" cy="44" r="2.3" fill="#3C5A99"/>
         <defs><linearGradient id="gg" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#F5E3A8"/><stop offset=".55" stop-color="#D9AC33"/><stop offset="1" stop-color="#EBCB6F"/>
         </linearGradient></defs>
       </svg>
-      <div class="royal-eyebrow">ROYAL INVITATION</div>
-      <div class="script-name">Princess Sora</div>
-      <h1 class="balltitle"><span class="goldtext">소라 공주</span> 생일 연회</h1>
-      <div class="ball-sub">— 1박 2일 · 양양 어전 바베큐 —</div>
+      <div class="royal-eyebrow">왕 실 초 대 장</div>
+      <div class="script-name">소라 공주</div>
+      <h1 class="balltitle">생일 연회에 <span class="goldtext">모시나이다</span></h1>
+      <div class="ball-sub">— 1박 2일 · 강원 양양 어전 바베큐 —</div>
       <div class="when-strip">
         <span>📅 2026. 8. 1(토) ~ 8. 2(일)</span>
-        <span>🏰 강원 양양 별궁</span>
+        <span>📍 강원 양양 별궁</span>
         <span>👨‍👩‍👧‍👦 왕실 5인</span>
       </div>
       <div class="medal" id="medal" hidden>
         <div class="medal-ring"><div class="medal-in">
-          <span class="medal-crown">👑</span>
+          <span class="medal-crown">🏵️</span>
           <span class="medal-d" id="medalD">D-?</span>
           <span class="medal-cap">TO THE BALL</span>
         </div></div>
@@ -388,7 +411,7 @@
     <section class="sec">
       <div class="sec-eyebrow">SCHEDULE</div>
       <h2 class="sec-title">연회 일정</h2>
-      <div class="ornk">♛</div>
+      <div class="ornk">❀</div>
     </section>
     <div class="daycard">
       <div class="dh"><b>첫째 날</b><span>8월 1일 토요일</span></div>
@@ -411,7 +434,7 @@
     <section class="sec">
       <div class="sec-eyebrow">DEPARTURE</div>
       <h2 class="sec-title">출발 · 이동 안내</h2>
-      <div class="ornk">♛</div>
+      <div class="ornk">❀</div>
     </section>
     <div class="carriages">
       <div class="cg"><span class="ic">🚗</span><div>
@@ -428,7 +451,7 @@
     <section class="sec">
       <div class="sec-eyebrow">THE PALACE</div>
       <h2 class="sec-title">별궁 안내</h2>
-      <div class="ornk">♛</div>
+      <div class="ornk">❀</div>
     </section>
     <div class="lodge">
       <div class="lodge-grid">
@@ -450,7 +473,7 @@
     <section class="sec">
       <div class="sec-eyebrow">ROYAL FEAST</div>
       <h2 class="sec-title">왕실 만찬 메뉴판</h2>
-      <div class="ornk">♛</div>
+      <div class="ornk">❀</div>
     </section>
     <div class="m-legend"><span><span class="on-dot"></span>확정 어찬</span><span><span class="off-dot"></span>예비 진상 목록</span></div>
     <div class="menuwrap" id="royalMenu"></div>
@@ -490,7 +513,7 @@
     <section class="sec">
       <div class="sec-eyebrow">ROYAL FAMILY</div>
       <h2 class="sec-title">왕실 구성원</h2>
-      <div class="ornk">♛</div>
+      <div class="ornk">❀</div>
     </section>
     <div class="fam">
       <div class="fm star"><div class="av">👸</div><div class="ti">HER HIGHNESS</div><div class="nm">소라 공주</div><div class="rl">오늘의 주인공 · 생일자 김소라</div></div>
@@ -503,7 +526,7 @@
     <section class="sec">
       <div class="sec-eyebrow">MAKE A WISH</div>
       <h2 class="sec-title">촛불을 꺼주시오</h2>
-      <div class="ornk">♛</div>
+      <div class="ornk">❀</div>
     </section>
     <div class="cakebox">
       <p class="cake-hint">촛불 다섯 — 왕실 가족의 수만큼. <b>톡톡 눌러 모두 꺼주시오</b> 🕯</p>
@@ -524,7 +547,7 @@
     <div class="pledge" id="pledge">
       <div class="q">공주님의 연회, 참석을 맹세하시오 👑</div>
       <div class="row">
-        <button class="btn-oath" id="oath">맹세하옵니다 ♛</button>
+        <button class="btn-oath" id="oath">맹세하옵니다 ❀</button>
         <button class="btn-nope" id="nope">불참하겠소...</button>
       </div>
       <div class="pledge-alert" id="pledgeAlert" role="status"></div>
@@ -532,7 +555,7 @@
     </div>
 
     <footer class="foot">
-      <div class="scr">Long live the Princess</div>
+      <div class="scr">소라 공주, 천세!</div>
       <div class="committee">ROYAL BANQUET COMMITTEE · JAKE &amp; TAEJIN</div>
     </footer>
   </main>
@@ -627,7 +650,7 @@ if(!reduce){
 document.getElementById('crown').addEventListener('click',e=>{
   const r=e.currentTarget.getBoundingClientRect();
   burst(r.left+r.width/2, r.top+r.height/2, 24);
-  toast('👑 공주님 만세!');
+  toast('❀ 소라 공주 천세!');
 });
 
 /* ===== 케이크 촛불 ===== */
