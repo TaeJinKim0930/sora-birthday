@@ -3,24 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>소라 공주 연회 여정 · Royal Itinerary</title>
-<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Nanum+Brush+Script&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<title>소라 공주 연회 여정</title>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Nanum+Brush+Script&family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>
   :root{
-    --rose:#C94477; --rose-lt:#E85C8F; --gold:#B8941F; --gold-lt:#E8C766; --gold-pale:#F3E2A6;
-    --ink:#4A3038; --sub:#9A7A86; --paper:#FFFDF6; --cream:#FBF1D9;
-    --goldgrad:linear-gradient(180deg,#F3E2A6 0%,#C9A227 52%,#EBCB6F 100%);
+    --rose:#C1436A; --rose-lt:#DA6A93; --gold:#B58718; --gold-lt:#E4C25A; --gold-pale:#F4E1A0; --jade:#1E9270;
+    --ink:#3B2A16; --sub:#8A6A4A; --paper:#FFFDF6; --cream:#FBF1D9;
+    --goldgrad:linear-gradient(180deg,#F4E1A0 0%,#C9971F 52%,#E4C25A 100%);
   }
   *{margin:0;box-sizing:border-box}
+  .gj{display:inline-block;width:.95em;height:1.05em;vertical-align:-.16em;
+    background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 6 7.2'%3E%3Cpath d='M0,-2.4 C1.7,-2.4 2.4,-1.1 2.2,0.2 C2,1.6 0.9,2.6 -0.4,2.4 C-1.8,2.2 -2.2,0.6 -1.5,-0.6 C-1,-1.6 -0.9,-2.4 0,-2.4 Z' fill='%231E9270' stroke='%230E5540' stroke-width='.3'/%3E%3Ccircle cx='.1' cy='-1.9' r='.85' fill='%23E4C25A' stroke='%238A5E10' stroke-width='.18'/%3E%3C/svg%3E")}
+  .gj.g{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 6 7.2'%3E%3Cpath d='M0,-2.4 C1.7,-2.4 2.4,-1.1 2.2,0.2 C2,1.6 0.9,2.6 -0.4,2.4 C-1.8,2.2 -2.2,0.6 -1.5,-0.6 C-1,-1.6 -0.9,-2.4 0,-2.4 Z' fill='%23E4C25A' stroke='%238A5E10' stroke-width='.3'/%3E%3Ccircle cx='.1' cy='-1.9' r='.8' fill='%23FFF6D8'/%3E%3C/svg%3E")}
   body{background:#E7E1D8;font-family:'Gowun Batang',serif;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 10px;
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
   .bar{display:flex;gap:10px;align-items:center}
-  .pbtn{font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.08em;color:#fff;background:linear-gradient(160deg,#E85C8F,#C94477);border:none;border-radius:999px;padding:13px 28px;cursor:pointer;box-shadow:0 8px 18px -8px #C94477}
+  .pbtn{font-family:'Song Myung',serif;font-weight:600;font-size:15px;letter-spacing:.08em;color:#fff;background:linear-gradient(160deg,#E85C8F,#C94477);border:none;border-radius:999px;padding:13px 28px;cursor:pointer;box-shadow:0 8px 18px -8px #C94477}
   .phint{font-family:'Gowun Batang';font-size:12.5px;color:#8A7A70}
 
   .sheet{width:210mm;height:296mm;background:
-      radial-gradient(circle at 11px 11px, rgba(201,162,39,.06) 1.1px, transparent 1.2px) 0 0/22px 22px,
-      radial-gradient(150% 90% at 50% 0%, #FFF6F0 0%, transparent 55%),
+      radial-gradient(circle at 11px 11px, rgba(201,151,31,.06) 1.1px, transparent 1.2px) 0 0/22px 22px,
+      radial-gradient(150% 90% at 50% 0%, #FFF7E9 0%, transparent 55%),
       var(--paper);
     position:relative;overflow:hidden;box-shadow:0 20px 44px -18px rgba(60,40,50,.5);padding:13mm 15mm;display:flex;flex-direction:column}
   /* 금박 이중 액자 */
@@ -33,11 +36,11 @@
 
   .head{position:relative;text-align:center;padding-top:2mm}
   .crown{width:23mm;height:auto;margin:0 auto 1mm;display:block;filter:drop-shadow(0 2mm 2mm rgba(201,162,39,.4))}
-  .eyebrow{font-family:'Cinzel',serif;font-size:3.5mm;letter-spacing:.55em;text-indent:.55em;color:var(--gold)}
+  .eyebrow{font-family:'Song Myung',serif;font-size:3.5mm;letter-spacing:.55em;text-indent:.55em;color:var(--gold)}
   .script{font-family:'Nanum Brush Script',cursive;font-size:16mm;line-height:1;color:var(--rose);margin:1mm 0 0}
   h1{font-family:'Song Myung',serif;font-size:10.5mm;letter-spacing:.06em;margin:1mm 0 1.5mm}
   .goldt{background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .meta{display:flex;justify-content:center;gap:5mm;font-family:'Cinzel',serif;font-size:3.3mm;letter-spacing:.1em;color:#7A5F45}
+  .meta{display:flex;justify-content:center;gap:5mm;font-family:'Song Myung',serif;font-size:3.3mm;letter-spacing:.1em;color:#7A5F45}
   .meta span{position:relative} .meta span+span::before{content:"·";position:absolute;left:-3mm;color:var(--gold)}
   .rule{display:flex;align-items:center;justify-content:center;gap:4mm;color:var(--gold);margin:5mm 0 5mm;font-size:4mm}
   .rule::before,.rule::after{content:"";height:.4mm;width:38mm;background:linear-gradient(90deg,transparent,#D9BC6B)}
@@ -50,13 +53,13 @@
   .day{margin:0 1mm}
   .dhead{display:flex;align-items:baseline;gap:3mm;border-bottom:.5mm solid #E7D6AE;padding-bottom:1.2mm;margin-bottom:1.8mm}
   .dhead .dn{font-family:'Song Myung',serif;font-size:6mm;color:var(--rose)}
-  .dhead .dd{font-family:'Cinzel',serif;font-size:3mm;letter-spacing:.14em;color:var(--sub)}
+  .dhead .dd{font-family:'Song Myung',serif;font-size:3mm;letter-spacing:.14em;color:var(--sub)}
   .tl{position:relative;padding-left:9mm}
   .tl::before{content:"";position:absolute;left:2.4mm;top:2mm;bottom:2mm;width:.5mm;background:linear-gradient(180deg,#E8C766,#D9BC6B)}
   .ev{position:relative;display:flex;gap:4mm;padding:2.1mm 0;align-items:baseline}
   .ev::before{content:"";position:absolute;left:-7.2mm;top:2.4mm;width:3mm;height:3mm;border-radius:50%;background:var(--goldgrad);box-shadow:0 0 0 1mm #FFF7E4}
   .ev.star::before{background:radial-gradient(circle at 35% 30%,#F08CAD,#C94477);box-shadow:0 0 0 1mm #FBE0E9}
-  .ev .t{font-family:'Cinzel',serif;font-size:3.5mm;font-weight:600;color:var(--gold);min-width:15mm;letter-spacing:.03em}
+  .ev .t{font-family:'Song Myung',serif;font-size:3.5mm;font-weight:600;color:var(--gold);min-width:15mm;letter-spacing:.03em}
   .ev .x{font-size:4mm;line-height:1.5}
   .ev .x b{color:var(--rose)}
   .ev .x small{display:block;font-size:3.1mm;color:var(--sub);margin-top:.3mm}
@@ -73,7 +76,7 @@
 
   .foot{margin-top:auto;padding-top:5mm;text-align:center}
   .foot .fscript{font-family:'Nanum Brush Script',cursive;font-size:8.5mm;color:var(--rose)}
-  .foot .fsig{font-family:'Cinzel',serif;font-size:2.7mm;letter-spacing:.3em;color:var(--sub);margin-top:1mm}
+  .foot .fsig{font-family:'Song Myung',serif;font-size:2.7mm;letter-spacing:.3em;color:var(--sub);margin-top:1mm}
 
   @media print{
     body{background:#fff;padding:0;gap:0}
@@ -91,67 +94,89 @@
 
   <div class="sheet">
     <div class="frame"></div>
-    <span class="corner tl">❦</span><span class="corner tr">❦</span><span class="corner bl">❦</span><span class="corner br">❦</span>
-    <span class="wm">👑</span>
+    <span class="corner tl"><i class="gj g"></i></span><span class="corner tr"><i class="gj g"></i></span><span class="corner bl"><i class="gj g"></i></span><span class="corner br"><i class="gj g"></i></span>
+    <span class="wm"><i class="gj"></i></span>
 
     <div class="head">
-      <svg class="crown" viewBox="0 0 100 66" aria-hidden="true">
-        <g stroke="#C9A227" stroke-width="1.6"><path d="M22,42 V55"/><path d="M78,42 V55"/></g>
-        <circle cx="22" cy="57" r="2.6" fill="#9B2E5A"/><circle cx="78" cy="57" r="2.6" fill="#3E9B90"/>
-        <path d="M18,39 Q50,49 82,39 L82,47 Q50,57 18,47 Z" fill="url(#g)" stroke="#B08A1E" stroke-width="1.4"/>
-        <g stroke="#B08A1E" stroke-width="1.1">
-          <circle cx="29" cy="35" r="4.2" fill="url(#g)"/><circle cx="40" cy="30" r="5" fill="url(#g)"/>
-          <circle cx="60" cy="30" r="5" fill="url(#g)"/><circle cx="71" cy="35" r="4.2" fill="url(#g)"/>
+      <svg class="crown" viewBox="0 0 100 80" aria-hidden="true">
+        <defs>
+          <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E6A9"/><stop offset=".38" stop-color="#E4C25A"/><stop offset=".68" stop-color="#C4941C"/><stop offset="1" stop-color="#9C6E13"/></linearGradient>
+          <radialGradient id="jadeG" cx=".4" cy=".34" r=".78"><stop offset="0" stop-color="#7FD9B4"/><stop offset=".55" stop-color="#1E9270"/><stop offset="1" stop-color="#12654C"/></radialGradient>
+          <radialGradient id="yeongG" cx=".4" cy=".3" r=".85"><stop offset="0" stop-color="#FFF6D8"/><stop offset="1" stop-color="#D9AC33"/></radialGradient>
+        </defs>
+        <g fill="none" stroke="url(#goldV)" stroke-width="2.6" stroke-linecap="round" opacity=".92">
+          <path d="M30,58 C23.5,49 19.5,39 18.8,25"/><path d="M22.6,42 C19,39.5 16.6,38 14.2,36.6"/><path d="M20.6,32 C17.6,30 15.6,29 13.6,27.6"/>
+          <path d="M70,58 C76.5,49 80.5,39 81.2,25"/><path d="M77.4,42 C81,39.5 83.4,38 85.8,36.6"/><path d="M79.4,32 C82.4,30 84.4,29 86.4,27.6"/>
         </g>
-        <circle cx="50" cy="21" r="8" fill="#F6A8C4" stroke="#C1436A" stroke-width="1.6"/>
-        <circle cx="50" cy="21" r="3.3" fill="url(#g)" stroke="#B08A1E" stroke-width=".8"/>
-        <circle cx="33" cy="44" r="2.3" fill="#3E9B90"/><circle cx="50" cy="46" r="2.6" fill="#9B2E5A"/><circle cx="67" cy="44" r="2.3" fill="#3C5A99"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E2A6"/><stop offset=".55" stop-color="#C9A227"/><stop offset="1" stop-color="#EBCB6F"/></linearGradient></defs>
+        <g fill="url(#jadeG)" stroke="#0E5540" stroke-width=".35"><circle cx="18.8" cy="24" r="1.9"/><circle cx="14" cy="36" r="1.4"/><circle cx="13.4" cy="27" r="1.4"/><circle cx="81.2" cy="24" r="1.9"/><circle cx="86" cy="36" r="1.4"/><circle cx="86.6" cy="27" r="1.4"/></g>
+        <g fill="none" stroke="url(#goldV)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M33.5,58 L33.5,23 M26.5,45 L40.5,45 M26.5,45 L26.5,39 M40.5,45 L40.5,39 M29,34.5 L38,34.5 M29,34.5 L29,29.5 M38,34.5 L38,29.5"/>
+          <path d="M66.5,58 L66.5,23 M59.5,45 L73.5,45 M59.5,45 L59.5,39 M73.5,45 L73.5,39 M62,34.5 L71,34.5 M62,34.5 L62,29.5 M71,34.5 L71,29.5"/>
+        </g>
+        <g fill="none" stroke="url(#goldV)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M50,58 L50,12 M39.5,44 L60.5,44 M39.5,44 L39.5,37 M60.5,44 L60.5,37 M42.5,32.5 L57.5,32.5 M42.5,32.5 L42.5,26.5 M57.5,32.5 L57.5,26.5 M45,22 L55,22 M45,22 L45,16 M55,22 L55,16"/>
+        </g>
+        <g fill="url(#jadeG)" stroke="#0E5540" stroke-width=".35"><circle cx="33.5" cy="21.5" r="2.2"/><circle cx="66.5" cy="21.5" r="2.2"/><circle cx="50" cy="11" r="2.9"/></g>
+        <path d="M17,55 Q50,50 83,55 L83,66 Q50,61 17,66 Z" fill="url(#goldV)" stroke="#8A5E10" stroke-width=".8"/>
+        <g fill="#8A5E10"><circle cx="22" cy="57.8" r=".55"/><circle cx="30" cy="57.4" r=".55"/><circle cx="38" cy="57.1" r=".55"/><circle cx="46" cy="56.9" r=".55"/><circle cx="54" cy="56.9" r=".55"/><circle cx="62" cy="57.1" r=".55"/><circle cx="70" cy="57.4" r=".55"/><circle cx="78" cy="57.8" r=".55"/></g>
+        <g stroke="#0E5540" stroke-width=".3">
+          <path transform="translate(37.5,63.4) scale(1.5)" d="M0,-2.4 C1.7,-2.4 2.4,-1.1 2.2,0.2 C2,1.6 0.9,2.6 -0.4,2.4 C-1.8,2.2 -2.2,0.6 -1.5,-0.6 C-1,-1.6 -0.9,-2.4 0,-2.4 Z" fill="url(#jadeG)"/>
+          <path transform="translate(50,64) scale(1.7)" d="M0,-2.4 C1.7,-2.4 2.4,-1.1 2.2,0.2 C2,1.6 0.9,2.6 -0.4,2.4 C-1.8,2.2 -2.2,0.6 -1.5,-0.6 C-1,-1.6 -0.9,-2.4 0,-2.4 Z" fill="#DA6A93" stroke="#B23A63"/>
+          <path transform="translate(62.5,63.4) scale(1.5)" d="M0,-2.4 C1.7,-2.4 2.4,-1.1 2.2,0.2 C2,1.6 0.9,2.6 -0.4,2.4 C-1.8,2.2 -2.2,0.6 -1.5,-0.6 C-1,-1.6 -0.9,-2.4 0,-2.4 Z" fill="url(#jadeG)"/>
+        </g>
+        <g stroke="#C4941C" stroke-width=".5">
+          <g><line x1="24" y1="65.5" x2="24" y2="68"/><circle cx="24" cy="69.2" r="1.15" fill="url(#yeongG)" stroke="none"/></g>
+          <g><line x1="36" y1="65.5" x2="36" y2="68.4"/><circle cx="36" cy="69.6" r="1.15" fill="url(#yeongG)" stroke="none"/></g>
+          <g><line x1="64" y1="65.5" x2="64" y2="68.4"/><circle cx="64" cy="69.6" r="1.15" fill="url(#yeongG)" stroke="none"/></g>
+          <g><line x1="76" y1="65.5" x2="76" y2="68"/><circle cx="76" cy="69.2" r="1.15" fill="url(#yeongG)" stroke="none"/></g>
+          <g><line x1="19" y1="64" x2="19" y2="73"/><circle cx="19" cy="66.5" r="1" fill="url(#yeongG)" stroke="none"/><circle cx="19" cy="70" r="1" fill="url(#yeongG)" stroke="none"/><path transform="translate(19,75.5) scale(1.5)" d="M0,-2.4 C1.7,-2.4 2.4,-1.1 2.2,0.2 C2,1.6 0.9,2.6 -0.4,2.4 C-1.8,2.2 -2.2,0.6 -1.5,-0.6 C-1,-1.6 -0.9,-2.4 0,-2.4 Z" fill="url(#jadeG)" stroke="#0E5540" stroke-width=".3"/></g>
+          <g><line x1="81" y1="64" x2="81" y2="73"/><circle cx="81" cy="66.5" r="1" fill="url(#yeongG)" stroke="none"/><circle cx="81" cy="70" r="1" fill="url(#yeongG)" stroke="none"/><path transform="translate(81,75.5) scale(1.5)" d="M0,-2.4 C1.7,-2.4 2.4,-1.1 2.2,0.2 C2,1.6 0.9,2.6 -0.4,2.4 C-1.8,2.2 -2.2,0.6 -1.5,-0.6 C-1,-1.6 -0.9,-2.4 0,-2.4 Z" fill="url(#jadeG)" stroke="#0E5540" stroke-width=".3"/></g>
+        </g>
       </svg>
-      <div class="eyebrow">왕 실 연 회 여 정</div>
+      <div class="eyebrow">서 라 벌 연 회 여 정</div>
       <div class="script">소라 공주</div>
       <h1><span class="goldt">소라 공주</span> 연회 여정</h1>
-      <div class="meta"><span>1박 2일</span><span>2026. 8. 1 ~ 8. 2</span><span>강원 양양 별궁</span></div>
+      <div class="meta"><span>1박 2일</span><span>2026. 8. 1 ~ 8. 2</span><span>양양 월지 별궁</span></div>
     </div>
 
-    <div class="rule">✦ ♛ ✦</div>
+    <div class="rule"><i class="gj"></i></div>
 
     <div class="days">
       <div class="col">
         <div class="day">
-          <div class="dhead"><span class="dn">첫째 날</span><span class="dd">DAY 1 · 8. 1 SAT</span></div>
+          <div class="dhead"><span class="dn">첫째 날</span><span class="dd">8월 1일 · 토요일</span></div>
           <div class="tl">
             <div class="ev"><span class="t">08:00</span><span class="x">1호차 출발 <small>여의나루역 — 아빠 · 엄마 · 태진</small></span></div>
             <div class="ev"><span class="t">09:00</span><span class="x">2호차 합류 <small>별내역 — 소라 · Jake, 함께 양양으로</small></span></div>
             <div class="ev"><span class="t">12:00</span><span class="x">중식 <small>휴게소 또는 도착지 인근에서 간단히</small></span></div>
-            <div class="ev star"><span class="t">15:00</span><span class="x">🏰 별궁 입성 <small>체크인 · 여장 풀기</small></span></div>
+            <div class="ev star"><span class="t">15:00</span><span class="x">월지 별궁 입성 <small>여장 풀고 별궁 둘러보기</small></span></div>
             <div class="ev"><span class="t">16:00</span><span class="x">수라간 가동 <small>연회 준비 개시 (코스 메뉴판 참조)</small></span></div>
-            <div class="ev star"><span class="t">18:00</span><span class="x">🍖 왕실 바베큐 만찬</span></div>
+            <div class="ev star"><span class="t">18:00</span><span class="x">🍖 월지 숯불 연회</span></div>
             <div class="ev"><span class="t">저녁</span><span class="x">🎂 생일 축하식 <small>케이크 · 촛불 · 축배</small></span></div>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="day">
-          <div class="dhead"><span class="dn">둘째 날</span><span class="dd">DAY 2 · 8. 2 SUN</span></div>
+          <div class="dhead"><span class="dn">둘째 날</span><span class="dd">8월 2일 · 일요일</span></div>
           <div class="tl">
             <div class="ev"><span class="t">아침</span><span class="x">조식 <small>현장 상황에 따라 (뼈국 유력)</small></span></div>
             <div class="ev"><span class="t">10:00</span><span class="x">철거 · 정리 정돈</span></div>
-            <div class="ev star"><span class="t">11:00</span><span class="x">퇴성 <small>체크아웃 · 안전 귀가</small></span></div>
+            <div class="ev star"><span class="t">11:00</span><span class="x">퇴성 <small>짐 정리 · 안전 귀가</small></span></div>
           </div>
         </div>
         <div class="stack">
           <div class="card">
-            <h4>— 어명, 꼭 지킬 것 —</h4>
+            <h4>— 왕명, 꼭 지킬 것 —</h4>
             <ul>
-              <li>👑 소라 공주님 <b>마음껏 축하</b>하기</li>
+              <li><i class="gj"></i> 소라 공주님 <b>마음껏 축하</b>하기</li>
               <li>🍖🔥 배 터지게 먹고 <b>실컷 놀기</b></li>
               <li>📸 인생샷 &amp; 🌊 불멍은 필수!</li>
             </ul>
           </div>
           <div class="card">
-            <h4>— 별궁 안내 —</h4>
-            <div class="facil"><span>🏡 강원 양양 독채</span><span>🔥 참나무 바베큐</span><span>🥬 채소 텃밭</span><span>🅿️ 주차·와이파이</span></div>
+            <h4>— 월지 별궁 안내 —</h4>
+            <div class="facil"><span>🏡 양양 월지 독채</span><span>🔥 참나무 바베큐</span><span>🥬 채소 텃밭</span><span>🅿️ 주차·와이파이</span></div>
           </div>
         </div>
       </div>
@@ -159,7 +184,7 @@
 
     <div class="foot">
       <div class="fscript">먼 길, 편안히 오시옵소서</div>
-      <div class="fsig">ROYAL BANQUET COMMITTEE · JAKE &amp; TAEJIN</div>
+      <div class="fsig">서라벌 연회 준비 화랑단 · JAKE &amp; 태진</div>
     </div>
   </div>
 </body>
