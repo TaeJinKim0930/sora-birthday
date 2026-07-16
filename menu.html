@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>왕실 만찬 코스 · Le Menu Royal</title>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Great+Vibes&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#C94477; --rose-lt:#E85C8F; --gold:#B8941F; --gold-lt:#E8C766;
+    --ink:#463038; --sub:#9A7A86; --paper:#FFFDF6;
+    --goldgrad:linear-gradient(180deg,#F3E2A6 0%,#C9A227 52%,#EBCB6F 100%);
+  }
+  *{margin:0;box-sizing:border-box}
+  body{background:#E7E1D8;font-family:'Gowun Batang',serif;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 10px;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bar{display:flex;gap:10px;align-items:center}
+  .pbtn{font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.08em;color:#fff;background:linear-gradient(160deg,#E85C8F,#C94477);border:none;border-radius:999px;padding:13px 28px;cursor:pointer;box-shadow:0 8px 18px -8px #C94477}
+  .phint{font-size:12.5px;color:#8A7A70}
+
+  .sheet{width:210mm;height:296mm;position:relative;overflow:hidden;box-shadow:0 20px 44px -18px rgba(60,40,50,.5);padding:12mm 18mm 12mm;display:flex;flex-direction:column;
+    background:
+      radial-gradient(circle at 11px 11px, rgba(201,162,39,.05) 1.1px, transparent 1.2px) 0 0/22px 22px,
+      radial-gradient(150% 80% at 50% 0%, #FFF6F0 0%, transparent 50%),
+      var(--paper)}
+  .frame{position:absolute;inset:7mm;border:.5mm solid #D9BC6B;pointer-events:none}
+  .frame::before{content:"";position:absolute;inset:1.6mm;border:1mm solid transparent;border-image:var(--goldgrad) 1}
+  .corner{position:absolute;font-size:6mm;color:var(--gold)}
+  .corner.tl{top:9mm;left:10mm}.corner.tr{top:9mm;right:10mm}.corner.bl{bottom:9mm;left:10mm}.corner.br{bottom:9mm;right:10mm}
+
+  .head{text-align:center;position:relative}
+  .crown{width:16mm;height:auto;margin:0 auto .5mm;display:block;filter:drop-shadow(0 1.5mm 2mm rgba(201,162,39,.4))}
+  .eyebrow{font-family:'Cinzel',serif;font-size:3.1mm;letter-spacing:.5em;text-indent:.5em;color:var(--gold)}
+  .script{font-family:'Great Vibes',cursive;font-size:15mm;line-height:1;color:var(--rose);margin:.3mm 0}
+  .head h1{font-family:'Song Myung',serif;font-size:6mm;letter-spacing:.22em;color:var(--ink)}
+  .head .place{font-family:'Cinzel',serif;font-size:2.9mm;letter-spacing:.24em;color:var(--sub);margin-top:1mm}
+  .divider{display:flex;align-items:center;justify-content:center;gap:3mm;color:var(--gold);margin:3mm 0 2.4mm;font-size:3.6mm}
+  .divider::before,.divider::after{content:"";height:.35mm;width:30mm;background:linear-gradient(90deg,transparent,#D9BC6B)}
+  .divider::after{background:linear-gradient(90deg,#D9BC6B,transparent)}
+
+  .course{display:grid;grid-template-columns:12mm 1fr;gap:3mm;padding:1.9mm 0;align-items:start}
+  .course + .course{border-top:.3mm dotted #E2D2AC}
+  .cnum{font-family:'Cinzel',serif;font-size:6mm;color:transparent;background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;text-align:center;line-height:1.1}
+  .cbody .cn{font-family:'Cinzel',serif;font-size:2.7mm;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+  .cbody .dish{font-family:'Song Myung',serif;font-size:4.6mm;line-height:1.3;margin:.3mm 0 .2mm}
+  .cbody .dish b{color:var(--rose)}
+  .cbody .desc{font-size:3.2mm;line-height:1.55;color:#6E4B57}
+  .cbody .desc .chef{color:var(--gold)}
+  .course .time{grid-column:2;font-family:'Cinzel',serif;font-size:2.6mm;letter-spacing:.1em;color:var(--sub);margin-top:.6mm}
+
+  .pairing{margin-top:auto;border:.5mm solid #E7D6AE;border-radius:2mm;background:#FFFCF3;padding:2.4mm 4mm;text-align:center}
+  .pairing .pl{font-family:'Cinzel',serif;font-size:2.7mm;letter-spacing:.28em;color:var(--gold);margin-bottom:1mm}
+  .pairing .pd{font-family:'Song Myung',serif;font-size:4.4mm}
+  .pairing .pd b{color:var(--rose)}
+
+  .chefs{display:flex;justify-content:center;gap:8mm;margin-top:3mm;text-align:center}
+  .chefs div{font-size:3.1mm;color:#6E4B57}
+  .chefs .lbl{font-family:'Cinzel',serif;font-size:2.5mm;letter-spacing:.2em;color:var(--gold)}
+  .chefs .nm{font-family:'Song Myung',serif;font-size:4mm;color:var(--rose);margin-top:.4mm}
+
+  .servebar{margin-top:3mm;display:flex;justify-content:space-between;align-items:center;border-top:.35mm solid #E7D6AE;padding-top:2mm}
+  .servebar .step{text-align:center;flex:1;position:relative}
+  .servebar .step .h{font-family:'Cinzel',serif;font-size:2.9mm;color:var(--gold)}
+  .servebar .step .l{font-size:2.6mm;color:var(--sub);margin-top:.3mm}
+  .servebar .step:not(:last-child)::after{content:"→";position:absolute;right:-1mm;top:1mm;color:#D9BC6B;font-size:3mm}
+
+  .foot{text-align:center;margin-top:3mm}
+  .foot .fs{font-family:'Great Vibes',cursive;font-size:7mm;color:var(--rose)}
+  .foot .fsig{font-family:'Cinzel',serif;font-size:2.5mm;letter-spacing:.28em;color:var(--sub);margin-top:.5mm}
+
+  @media print{ body{background:#fff;padding:0;gap:0} .bar{display:none!important} .sheet{box-shadow:none} }
+  @page{size:A4 portrait;margin:0}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <button class="pbtn" onclick="window.print()">🖨️ A4로 인쇄 / 저장</button>
+    <span class="phint">인쇄 설정에서 ‘배경 그래픽’을 켜주세요</span>
+  </div>
+
+  <div class="sheet">
+    <div class="frame"></div>
+    <span class="corner tl">✦</span><span class="corner tr">✦</span><span class="corner bl">✦</span><span class="corner br">✦</span>
+
+    <div class="head">
+      <svg class="crown" viewBox="0 0 96 62">
+        <path d="M8,50 L4,20 L26,34 L48,10 L70,34 L92,20 L88,50 Z" fill="url(#g)" stroke="#B08A1E" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="8" y="50" width="80" height="8" rx="3" fill="url(#g)" stroke="#B08A1E" stroke-width="1.6"/>
+        <circle cx="48" cy="8" r="4.5" fill="#F08CAD" stroke="#C94477" stroke-width="1.4"/>
+        <circle cx="30" cy="54" r="2.6" fill="#F08CAD"/><circle cx="48" cy="54" r="2.6" fill="#fff"/><circle cx="66" cy="54" r="2.6" fill="#F08CAD"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E2A6"/><stop offset=".55" stop-color="#C9A227"/><stop offset="1" stop-color="#EBCB6F"/></linearGradient></defs>
+      </svg>
+      <div class="eyebrow">ROYAL FEAST · 兩陽 別宮</div>
+      <div class="script">Le Menu</div>
+      <h1>소라 공주 만찬 코스</h1>
+      <div class="place">A BIRTHDAY DEGUSTATION · 2026. 8. 1</div>
+    </div>
+
+    <div class="divider">✦ ♛ ✦</div>
+
+    <div class="course"><div class="cnum">I</div><div class="cbody">
+      <div class="cn">Entrée · 전채</div>
+      <div class="dish"><b>마라롱샤</b> — 민물가재와 마라의 향연</div>
+      <div class="desc">얼얼하고 향긋한 첫 인사. <span class="chef">by Jake</span> · 17:15 서빙</div>
+    </div></div>
+
+    <div class="course"><div class="cnum">II</div><div class="cbody">
+      <div class="cn">Le Feu · 참나무 불</div>
+      <div class="dish"><b>티본 스테이크</b> — 참나무 숯불 직화</div>
+      <div class="desc">겉은 바삭, 속은 로제. 불의 마법사의 시그니처. <span class="chef">by 태진</span></div>
+    </div></div>
+
+    <div class="course"><div class="cnum">III</div><div class="cbody">
+      <div class="cn">Le Canard · 오리</div>
+      <div class="dish"><b>베이징덕 &amp; 밀전병쌈</b></div>
+      <div class="desc">바베큐 훈연으로 코팅한 오리를 밀전병에 싸서. <span class="chef">by Jake</span></div>
+    </div></div>
+
+    <div class="course"><div class="cnum">IV</div><div class="cbody">
+      <div class="cn">Le Riz · 밥</div>
+      <div class="dish"><b>오리 볶음밥</b></div>
+      <div class="desc">계란물과 오리 가니쉬를 올린 불맛 볶음밥. <span class="chef">by Jake</span></div>
+    </div></div>
+
+    <div class="course"><div class="cnum">V</div><div class="cbody">
+      <div class="cn">Le Bouillon · 탕</div>
+      <div class="dish"><b>뼈국</b> — 진하게 졸인 사골</div>
+      <div class="desc">식사 중반, 속을 데우는 한 그릇. <span class="chef">by Jake</span></div>
+    </div></div>
+
+    <div class="course"><div class="cnum">VI</div><div class="cbody">
+      <div class="cn">Accompagnement · 곁들임</div>
+      <div class="dish"><b>텃밭 쌈채소</b> · 계절과일 · 라면</div>
+      <div class="desc">별궁 텃밭에서 직접 딴 쌈채소와 상큼한 제철 과일.</div>
+    </div></div>
+
+    <div class="course"><div class="cnum">VII</div><div class="cbody">
+      <div class="cn">Dessert · 디저트</div>
+      <div class="dish"><b>미니 케이크</b> &amp; 생일 케이크 🎂</div>
+      <div class="desc">촛불을 끄고, 공주님의 소원과 함께.</div>
+    </div></div>
+
+    <div class="pairing">
+      <div class="pl">— WINE &amp; SPIRITS PAIRING —</div>
+      <div class="pd"><b>고량주</b> · <b>맥주</b> 로 축배를</div>
+    </div>
+
+    <div class="chefs">
+      <div><div class="lbl">EXECUTIVE CHEF</div><div class="nm">👨‍🍳 Jake</div></div>
+      <div><div class="lbl">GRILL MASTER</div><div class="nm">🔥 태진</div></div>
+    </div>
+
+    <div class="servebar">
+      <div class="step"><div class="h">16:00</div><div class="l">수라간 가동</div></div>
+      <div class="step"><div class="h">17:15</div><div class="l">전채 서빙</div></div>
+      <div class="step"><div class="h">17:35</div><div class="l">메인 플레이팅</div></div>
+      <div class="step"><div class="h">18:00</div><div class="l">만찬 개시 🍽</div></div>
+    </div>
+
+    <div class="foot">
+      <div class="fs">Bon Appétit, Your Highness</div>
+      <div class="fsig">SORA'S ROYAL KITCHEN · 兩陽 別宮 2026</div>
+    </div>
+  </div>
+</body>
+</html>
