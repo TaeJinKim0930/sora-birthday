@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E85C8F">
+<title>소라 공주 생일 연회 👑</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="👑 왕실에서 칙령이 도착했습니다">
+<meta property="og:description" content="소라 공주 탄신 연회 — 1박 2일 양양 어전 바베큐 · 눌러서 칙령을 펼치시오 📜">
+<meta property="og:image" content="https://taejinkim0930.github.io/sora-birthday/og.png?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Great+Vibes&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#E85C8F; --rose-deep:#C94477; --blush:#FFE3EC; --paper:#FFF9F5; --pearl:#FFFDF9;
+    --gold:#C9A227; --gold-lt:#EBCB6F; --gold-pale:#F5E3A8; --lav:#C9B8E8;
+    --ink:#5C3A47; --sub:#A98595; --line:#F2D8DE;
+    --disp:'Song Myung',serif; --body:'Gowun Batang',serif; --script:'Great Vibes',cursive; --ui:'Gowun Dodum',sans-serif;
+    --safe-b:env(safe-area-inset-bottom); --safe-t:env(safe-area-inset-top);
+    --goldgrad:linear-gradient(180deg,#F5E3A8 0%,#C9A227 55%,#E8C766 100%);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .poster{width:100%;min-height:100dvh;overflow:hidden;position:relative;
+    background:
+      radial-gradient(1.6px 1.6px at 22% 18%, rgba(201,162,39,.35) 50%, transparent 51%),
+      radial-gradient(1.6px 1.6px at 78% 34%, rgba(201,162,39,.3) 50%, transparent 51%),
+      radial-gradient(1.6px 1.6px at 40% 66%, rgba(232,92,143,.18) 50%, transparent 51%),
+      radial-gradient(1.6px 1.6px at 88% 82%, rgba(201,162,39,.3) 50%, transparent 51%),
+      linear-gradient(180deg,#FFF3F0 0%,#FFF9F5 30%,#FFF3F0 100%)}
+  @media (min-width:480px){
+    body{background:linear-gradient(180deg,#F7E3E6,#EFD9E4);min-height:100vh;padding:26px 15px 46px;display:flex;justify-content:center}
+    .poster{max-width:460px;min-height:auto;border-radius:6px;box-shadow:0 24px 60px -24px rgba(120,50,80,.5)}
+  }
+
+  #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:80}
+  .spark{position:fixed;z-index:79;pointer-events:none;color:#E8C766;text-shadow:0 0 6px #F5E3A8;font-size:13px;
+    animation:sparkFade .8s ease-out forwards}
+  @keyframes sparkFade{0%{opacity:1;transform:scale(.6) rotate(0)}100%{opacity:0;transform:scale(1.5) rotate(40deg) translateY(-14px)}}
+
+  /* ============ 칙령 두루마리 오프닝 ============ */
+  .decree{position:fixed;inset:0;height:100dvh;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+    padding:24px;overflow:hidden;
+    background:
+      radial-gradient(120% 80% at 50% 0%, #F9C9D8 0%, transparent 55%),
+      radial-gradient(140% 90% at 50% 100%, #D8A7C4 0%, transparent 60%),
+      linear-gradient(180deg,#F6AFC7 0%,#EF97B7 45%,#C98BB9 100%);
+    transition:opacity .85s ease, transform .85s ease}
+  .decree.gone{opacity:0;transform:scale(1.06);pointer-events:none}
+  .decree[hidden]{display:none}
+  .medal[hidden]{display:none}
+  .petal{position:absolute;top:-40px;font-size:18px;pointer-events:none;animation:petalFall linear infinite;opacity:.9}
+  @keyframes petalFall{0%{transform:translateY(-5vh) translateX(0) rotate(0)}50%{transform:translateY(45vh) translateX(26px) rotate(120deg)}100%{transform:translateY(105vh) translateX(-14px) rotate(280deg)}}
+  .dk-tw{position:absolute;color:#fff;font-size:14px;text-shadow:0 0 9px #fff;animation:dkTw 2.6s ease-in-out infinite;pointer-events:none}
+  @keyframes dkTw{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
+  .dk-eyebrow{position:relative;z-index:2;font-family:var(--disp);font-size:21px;color:#fff;text-shadow:0 2px 12px rgba(160,50,90,.6);letter-spacing:.14em}
+  .dk-eyebrow b{color:#FFE9A8;font-weight:400}
+
+  .scrollwrap{position:relative;z-index:2;width:min(320px,86vw);cursor:pointer;-webkit-tap-highlight-color:transparent;
+    filter:drop-shadow(0 22px 28px rgba(130,40,80,.45));animation:scrollFloat 3.8s ease-in-out infinite}
+  @keyframes scrollFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .decree.opening .scrollwrap{animation:none}
+  .rod{position:relative;height:26px;border-radius:13px;z-index:3;
+    background:linear-gradient(180deg,#F5E3A8,#C9A227 55%,#8F6F14);box-shadow:0 3px 7px rgba(120,70,10,.4)}
+  .rod::before,.rod::after{content:"";position:absolute;top:50%;width:16px;height:16px;border-radius:50%;transform:translateY(-50%);
+    background:radial-gradient(circle at 35% 30%,#F9EDC0,#C9A227 60%,#8F6F14)}
+  .rod::before{left:-8px} .rod::after{right:-8px}
+  .parchment{position:relative;margin:0 14px;background:
+      radial-gradient(circle at 12px 12px,#F7E6D2 1.4px,transparent 1.5px) 0 0/26px 26px,
+      linear-gradient(180deg,#FFF7E8,#FBEED6);
+    border-left:1.5px solid #E8D2AE;border-right:1.5px solid #E8D2AE;
+    height:120px;overflow:hidden;transition:height 1.15s cubic-bezier(.25,.9,.3,1);
+    display:flex;flex-direction:column;align-items:center}
+  .decree.opening .parchment{height:min(400px,52dvh)}
+  .pm-inner{padding:20px 20px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:9px;min-height:330px}
+  .pm-title{font-family:var(--disp);font-size:26px;letter-spacing:.9em;text-indent:.9em;color:#8F6F14;margin-top:2px}
+  .pm-div{width:70px;border-top:2px solid #D9BC6B}
+  .pm-script{font-family:var(--script);font-size:33px;color:#C94477;line-height:1.1}
+  .pm-line{font-size:14.5px;line-height:1.9;color:#6E4B3A}
+  .pm-line b{color:#C94477}
+  .pm-sm{font-size:11.5px;color:#A98A5F;letter-spacing:.2em}
+  .seal2{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);z-index:5;transition:opacity .4s,transform .5s}
+  .seal2-c{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:24px;
+    background:radial-gradient(circle at 35% 30%,#F08CAD,#C94477);
+    box-shadow:inset 0 0 0 2.5px rgba(255,255,255,.4),inset 0 -5px 8px rgba(140,25,70,.5),0 6px 12px rgba(140,25,70,.5);position:relative}
+  .seal2-c::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(255,255,255,.6);animation:sealPulse 2.1s ease-out infinite}
+  @keyframes sealPulse{0%{transform:scale(.75);opacity:.9}100%{transform:scale(1.4);opacity:0}}
+  .decree.opening .seal2{opacity:0;transform:translateX(-50%) translateY(14px) scale(.4)}
+  .dk-hint{position:relative;z-index:2;font-family:var(--ui);font-size:15.5px;color:#fff;text-shadow:0 2px 10px rgba(160,50,90,.6);animation:hintBob2 1.7s ease-in-out infinite}
+  @keyframes hintBob2{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .decree.opening .dk-hint{opacity:0}
+
+  /* ============ 공용 장식 ============ */
+  .goldtext{background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .ornk{display:flex;align-items:center;gap:12px;justify-content:center;color:#D9BC6B;font-size:15px;margin:6px 0}
+  .ornk::before,.ornk::after{content:"";flex:0 0 56px;border-top:1.5px solid #E4CE8E}
+  .sec{padding:26px 22px 6px}
+  .sec-eyebrow{font-family:var(--ui);text-align:center;font-size:11px;letter-spacing:.42em;text-indent:.42em;color:#C9A227;margin-bottom:6px}
+  .sec-title{font-family:var(--disp);text-align:center;font-size:24px;color:var(--ink);letter-spacing:.1em;margin:0 0 4px}
+
+  /* ============ 크레스트 헤더 ============ */
+  .crest{position:relative;padding:calc(38px + var(--safe-t)) 22px 10px;text-align:center;
+    background:
+      radial-gradient(90% 70% at 50% 0%, #FBD9E4 0%, transparent 70%),
+      transparent}
+  .crest .frame{position:absolute;inset:12px 12px 4px;border:1.5px solid #E4CE8E;border-radius:4px;pointer-events:none}
+  .crest .frame::after{content:"";position:absolute;inset:4px;border:.5px solid #EBD9A8}
+  .crest .fl{position:absolute;font-size:15px;color:#C9A227}
+  .fl.tl{top:4px;left:6px}.fl.tr{top:4px;right:6px}
+  .crown-svg{width:88px;height:auto;display:block;margin:4px auto 2px;cursor:pointer;-webkit-tap-highlight-color:transparent;
+    filter:drop-shadow(0 6px 10px rgba(201,162,39,.45));transition:transform .18s}
+  .crown-svg:active{transform:scale(1.12) rotate(-4deg)}
+  .royal-eyebrow{font-family:var(--ui);font-size:11.5px;letter-spacing:.52em;text-indent:.52em;color:#B08A1E}
+  .script-name{font-family:var(--script);font-size:52px;line-height:1.05;color:var(--rose-deep);margin:6px 0 0;text-shadow:0 2px 14px rgba(232,92,143,.25)}
+  h1.balltitle{font-family:var(--disp);font-weight:400;font-size:33px;letter-spacing:.06em;margin:6px 0 4px;line-height:1.3}
+  .ball-sub{font-family:var(--ui);font-size:13.5px;color:var(--sub);letter-spacing:.12em}
+  .when-strip{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+  .when-strip span{font-family:var(--ui);font-size:12.5px;color:#8A5F44;background:#FCF3DC;border:1px solid #EBD9A8;border-radius:999px;padding:7px 14px}
+
+  /* ============ 칙령문 ============ */
+  .edict{margin:14px 18px 0;padding:24px 22px;position:relative;text-align:center;
+    background:radial-gradient(circle at 10px 10px,#FBEFDB 1.3px,transparent 1.4px) 0 0/24px 24px,#FFFBF0;
+    border:1.5px solid #E4CE8E;border-radius:4px}
+  .edict::before,.edict::after{content:"❦";position:absolute;color:#D9BC6B;font-size:16px;left:50%;transform:translateX(-50%)}
+  .edict::before{top:-9px;background:#FFF6ED;padding:0 10px}
+  .edict::after{bottom:-10px;background:#FFF6ED;padding:0 10px}
+  .edict p{margin:0;font-size:14.5px;line-height:2.05;word-break:keep-all}
+  .edict p b{color:var(--rose-deep)}
+  .edict .sig{margin-top:14px;font-family:var(--ui);font-size:12px;color:var(--sub);letter-spacing:.15em}
+
+  /* ============ D-day 메달리온 ============ */
+  .medal{display:flex;flex-direction:column;align-items:center;gap:4px;margin:22px 0 0}
+  .medal-ring{width:132px;height:132px;border-radius:50%;display:grid;place-items:center;position:relative;
+    background:conic-gradient(from 0deg,#F5E3A8,#C9A227,#F5E3A8,#C9A227,#F5E3A8);
+    box-shadow:0 10px 22px -8px rgba(201,162,39,.55)}
+  .medal-in{width:112px;height:112px;border-radius:50%;background:#FFFDF6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+  .medal-crown{font-size:20px;line-height:1}
+  .medal-d{font-family:var(--disp);font-size:31px;color:var(--rose-deep);line-height:1.15}
+  .medal-cap{font-family:var(--ui);font-size:10px;color:#B08A1E;letter-spacing:.3em;text-indent:.3em}
+  .medal-sub{font-family:var(--ui);font-size:13px;color:var(--sub);margin-top:6px}
+
+  /* ============ 연회 일정 ============ */
+  .daycard{margin:12px 18px;border:1.5px solid var(--line);border-radius:6px;overflow:hidden;background:#FFFCFB}
+  .daycard .dh{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;
+    background:linear-gradient(120deg,#FBE0E9,#F9EFF3);border-bottom:1.5px solid var(--line)}
+  .daycard .dh b{font-family:var(--disp);font-weight:400;font-size:17px;letter-spacing:.06em}
+  .daycard .dh span{font-family:var(--ui);font-size:11.5px;color:var(--rose-deep);letter-spacing:.1em}
+  .drow{display:flex;gap:12px;padding:10px 16px;align-items:baseline;border-bottom:1px dashed #F4E4E9}
+  .drow:last-child{border-bottom:none}
+  .drow .t{font-family:var(--disp);font-size:14px;color:#B08A1E;min-width:52px;text-align:right}
+  .drow .tx{font-size:14px;line-height:1.65}
+  .drow .tx small{display:block;font-family:var(--ui);font-size:11.5px;color:var(--sub)}
+  .drow.hl{background:#FFF7E4}
+  .drow.hl .tx{font-weight:700}
+
+  /* ============ 어가 행렬 ============ */
+  .carriages{display:flex;flex-direction:column;gap:10px;margin:12px 18px}
+  .cg{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1.5px solid var(--line);border-radius:6px;background:#FFFCFB}
+  .cg .ic{font-size:30px}
+  .cg .nm{font-family:var(--disp);font-size:15px;margin-bottom:2px}
+  .cg .nm b{color:var(--rose-deep);font-weight:400}
+  .cg .who{font-family:var(--ui);font-size:12.5px;color:var(--sub);line-height:1.55}
+  .cg-note{font-family:var(--ui);text-align:center;font-size:12px;color:var(--sub);margin:2px 18px 0}
+  .lodge{margin:12px 18px}
+  .lodge-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .lg-card{border:1.5px solid var(--line);border-radius:6px;background:#FFFCFB;padding:13px 12px;text-align:center}
+  .lg-card .ic{font-size:24px}
+  .lg-card .tt{font-family:var(--disp);font-size:13.5px;margin:4px 0 2px}
+  .lg-card .ds{font-family:var(--ui);font-size:11.5px;color:var(--sub);line-height:1.55}
+  .mustknow{margin:10px 0 0;border:1.5px solid #E4CE8E;border-radius:6px;background:#FFFBF0;padding:12px 14px}
+  .mustknow .mh{font-family:var(--disp);font-size:13px;color:#8F6F14;letter-spacing:.14em;text-align:center;margin-bottom:6px}
+  .mustknow ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+  .mustknow li{font-family:var(--ui);font-size:12.5px;color:#6E4B3A;line-height:1.5;text-align:center}
+  .mustknow li b{color:var(--rose-deep)}
+  .locate{display:flex;justify-content:center;margin:14px 18px 2px}
+  .locate a{display:inline-flex;align-items:center;gap:7px;font-family:var(--disp);font-size:14.5px;color:#8F6F14;text-decoration:none;
+    background:#FFFBF0;border:1.5px solid #E4CE8E;border-radius:999px;padding:12px 22px;min-height:48px;box-shadow:0 6px 14px -8px rgba(201,162,39,.5);transition:transform .15s,filter .15s}
+  .locate a:active{transform:scale(.97)} .locate a:hover{filter:brightness(1.03)}
+  .locate a::after{content:"→";color:var(--rose-deep)}
+
+  /* ============ 만찬 메뉴판 ============ */
+  .menuwrap{margin:12px 18px;border:2px solid #E4CE8E;border-radius:6px;position:relative;background:#FFFBF0;padding:18px 16px 14px}
+  .menuwrap::after{content:"";position:absolute;inset:5px;border:.5px solid #EBD9A8;border-radius:3px;pointer-events:none}
+  .m-cat{margin-bottom:13px;position:relative;z-index:1}
+  .m-cat h4{font-family:var(--disp);font-weight:400;font-size:14px;color:#8F6F14;letter-spacing:.22em;text-align:center;margin:0 0 7px}
+  .m-cat h4::before{content:"— "} .m-cat h4::after{content:" —"}
+  .m-items{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+  .mi{font-family:var(--ui);font-size:12.5px;padding:6px 12px;border-radius:999px;border:1px solid}
+  .mi.on{color:#8F3E62;background:linear-gradient(120deg,#FCE3EC,#FBEFF4);border-color:#F0BFD2;font-weight:700}
+  .mi.on::before{content:"♛ ";color:#C9A227}
+  .mi.off{color:#A79A9E;background:#F7F3F4;border-color:#E7DEE1}
+  .mi.q::after{content:" ?";color:#C9A227}
+  .m-legend{display:flex;gap:14px;justify-content:center;margin:4px 0 12px;font-family:var(--ui);font-size:11px;color:var(--sub);position:relative;z-index:1}
+  .m-legend .on-dot,.m-legend .off-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+  .on-dot{background:#F0A8C4}.off-dot{background:#D9CFD3}
+  .chef{margin:6px 18px 0;padding:13px 16px;border:1.5px dashed #E4CE8E;border-radius:6px;background:#FFFDF6;position:relative}
+  .chef h5{margin:0 0 6px;font-family:var(--disp);font-weight:400;font-size:13.5px;color:#8F6F14;letter-spacing:.14em;text-align:center}
+  .chef p{margin:2px 0;font-family:var(--ui);font-size:12.5px;line-height:1.7;text-align:center;color:#6E4B3A}
+  .chef p b{color:var(--rose-deep)}
+
+  /* ============ 수라간 작전표 (접기) ============ */
+  details.ops{margin:12px 18px;border:1.5px solid var(--line);border-radius:6px;background:#FFFCFB;overflow:hidden}
+  details.ops summary{list-style:none;cursor:pointer;padding:13px 16px;font-family:var(--disp);font-size:15px;text-align:center;letter-spacing:.08em;
+    background:linear-gradient(120deg,#FBE0E9,#F9EFF3);-webkit-tap-highlight-color:transparent}
+  details.ops summary::-webkit-details-marker{display:none}
+  details.ops summary::after{content:" ▾";color:var(--rose-deep)}
+  details.ops[open] summary::after{content:" ▴"}
+  .ops-body{padding:6px 16px 14px}
+  .op{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed #F4E4E9;align-items:baseline}
+  .op:last-child{border-bottom:none}
+  .op .t{font-family:var(--disp);font-size:12.5px;color:#B08A1E;min-width:44px;text-align:right}
+  .op .tx{font-family:var(--ui);font-size:12.5px;line-height:1.6;color:#6E4B3A}
+  .op.hl .tx{font-weight:700;color:var(--rose-deep)}
+  .tools{margin-top:10px;padding-top:10px;border-top:1.5px solid var(--line)}
+  .tools h6{margin:0 0 8px;font-family:var(--disp);font-weight:400;font-size:12.5px;color:#8F6F14;letter-spacing:.14em;text-align:center}
+  .tool-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+  .tool-chips span{font-family:var(--ui);font-size:11.5px;color:#6E4B3A;background:#FCF3DC;border:1px solid #EBD9A8;border-radius:8px;padding:5px 9px}
+
+  /* ============ 왕실 구성원 ============ */
+  .fam{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 18px}
+  .fm{border:1.5px solid var(--line);border-radius:6px;background:#FFFCFB;padding:13px 10px;text-align:center}
+  .fm .av{font-size:31px}
+  .fm .ti{font-family:var(--ui);font-size:10.5px;letter-spacing:.26em;text-indent:.26em;color:#B08A1E;margin:5px 0 2px}
+  .fm .nm{font-family:var(--disp);font-size:16px}
+  .fm.star{grid-column:1 / -1;background:linear-gradient(140deg,#FCE3EC,#FFF6E4);border:2px solid #E8C766;position:relative;padding:17px 10px}
+  .fm.star .av{font-size:42px}
+  .fm.star .nm{font-size:20px;color:var(--rose-deep)}
+  .fm.star::before{content:"✦";position:absolute;top:8px;left:12px;color:#C9A227}
+  .fm.star::after{content:"✦";position:absolute;top:8px;right:12px;color:#C9A227}
+  .fm .rl{font-family:var(--ui);font-size:11px;color:var(--sub);margin-top:2px}
+
+  /* ============ 케이크 촛불 ============ */
+  .cakebox{margin:14px 18px;padding:22px 14px 20px;text-align:center;border:2px solid #E4CE8E;border-radius:6px;
+    background:radial-gradient(90% 80% at 50% 0%,#FBE0E9 0%,#FFF9F2 70%)}
+  .cake-hint{font-family:var(--ui);font-size:13px;color:#8F3E62;margin:0 0 14px}
+  .cake{position:relative;width:225px;height:172px;margin:26px auto 0}
+  .tier{position:absolute;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#F792B4,#E85C8F);border-radius:9px;box-shadow:inset 0 -7px 12px rgba(160,40,90,.28)}
+  .tier::before{content:"";position:absolute;top:-1px;left:0;right:0;height:15px;
+    background:radial-gradient(11px 13px at 11px 0,#FFF4F7 97%,transparent),#FFF4F7;background-size:22px 15px;background-repeat:repeat-x;border-radius:9px 9px 0 0}
+  .tier.t1{bottom:0;width:210px;height:62px}
+  .tier.t2{bottom:58px;width:158px;height:56px}
+  .tier.t3{bottom:110px;width:106px;height:50px}
+  .plate{position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);width:238px;height:22px;border-radius:50%;
+    background:radial-gradient(circle at 40% 35%,#F5E3A8,#C9A227);box-shadow:0 8px 14px -6px rgba(140,100,20,.5)}
+  .candles{position:absolute;bottom:158px;left:50%;transform:translateX(-50%);display:flex;gap:13px;z-index:3}
+  .cnd{position:relative;width:34px;height:56px;background:none;border:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .cnd .stick{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:9px;height:36px;border-radius:4px;
+    background:repeating-linear-gradient(135deg,#fff 0 4px,#F792B4 4px 8px)}
+  .cnd .flame{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);width:13px;height:19px;
+    background:radial-gradient(circle at 50% 78%,#FFF3C4 0%,#FFD96B 45%,#F0913C 100%);
+    border-radius:50% 50% 50% 50%/62% 62% 38% 38%;transform-origin:bottom center;
+    animation:flick .42s ease-in-out infinite alternate;transition:transform .3s,opacity .3s}
+  @keyframes flick{from{transform:translateX(-50%) scale(1) rotate(-3deg)}to{transform:translateX(-58%) scale(1.12) rotate(4deg)}}
+  .cnd.out .flame{opacity:0;transform:translateX(-50%) scale(.15)}
+  .cnd .puff{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:11px;height:11px;border-radius:50%;background:#CFC5C9;opacity:0;pointer-events:none}
+  .cnd.out .puff{animation:puffUp 1s ease-out forwards}
+  @keyframes puffUp{0%{opacity:.85;transform:translateX(-50%) translateY(0) scale(.6)}100%{opacity:0;transform:translateX(-46%) translateY(-26px) scale(1.7)}}
+  .cake-cheer{font-family:var(--disp);font-size:17px;color:var(--rose-deep);margin-top:22px;min-height:26px;opacity:0;transform:translateY(6px);transition:.5s}
+  .cake-cheer.show{opacity:1;transform:none}
+
+  /* ============ 참석 서약 ============ */
+  .pledge{margin:12px 18px 8px;padding:22px 18px;text-align:center;border:1.5px solid var(--line);border-radius:6px;
+    background:linear-gradient(120deg,#FBE0E9,#F5EDF6)}
+  .pledge .q{font-family:var(--disp);font-size:17.5px;letter-spacing:.05em}
+  .pledge .row{display:flex;gap:12px;justify-content:center;margin-top:15px;flex-wrap:wrap}
+  .btn-oath{font-family:var(--disp);font-size:15.5px;color:#fff;background:linear-gradient(160deg,#F08CAD,#C94477);border:none;border-radius:999px;
+    padding:13px 24px;min-height:48px;cursor:pointer;box-shadow:0 9px 18px -8px #C94477;-webkit-tap-highlight-color:transparent}
+  .btn-oath:active{transform:scale(1.05)}
+  .btn-nope{font-family:var(--ui);font-size:13.5px;color:#A08894;background:#fff;border:1.5px solid var(--line);border-radius:999px;
+    padding:12px 20px;min-height:48px;cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent}
+  .pledge-alert{display:none;margin:13px auto 0;font-family:var(--ui);font-size:13px;line-height:1.6;color:#7A3B4E;background:#fff;
+    border:1.5px solid #F0BFD2;border-radius:4px 14px 14px 14px;padding:10px 14px;max-width:320px}
+  .pledge-alert.show{display:block;animation:alertIn2 .45s cubic-bezier(.34,1.56,.64,1) both}
+  @keyframes alertIn2{0%{opacity:0;transform:translateY(8px) scale(.9)}100%{opacity:1;transform:none}}
+  .pledge .done-msg{font-family:var(--disp);font-size:16px;color:var(--rose-deep);margin-top:12px;opacity:0;transform:translateY(6px);transition:.45s}
+  .pledge.done .done-msg{opacity:1;transform:none}
+  .pledge.shake{animation:pShake .4s ease}
+  @keyframes pShake{0%,100%{transform:none}25%{transform:translateX(-6px)}60%{transform:translateX(6px)}85%{transform:translateX(-3px)}}
+
+  /* ============ 푸터 ============ */
+  .foot{margin:16px 18px calc(30px + var(--safe-b));text-align:center}
+  .dress{font-family:var(--ui);font-size:12.5px;color:#8A5F44;background:#FCF3DC;border:1px solid #EBD9A8;border-radius:999px;
+    display:inline-block;padding:8px 16px;margin-bottom:14px}
+  .foot .scr{font-family:var(--script);font-size:30px;color:var(--rose-deep)}
+  .foot .committee{font-family:var(--ui);font-size:11px;letter-spacing:.3em;text-indent:.3em;color:var(--sub);margin-top:6px}
+
+  .toast{position:fixed;left:50%;bottom:calc(30px + var(--safe-b));transform:translateX(-50%) translateY(20px);z-index:90;
+    background:#5C3A47;color:#fff;font-family:var(--ui);font-size:13.5px;padding:12px 20px;border-radius:999px;opacity:0;transition:.35s;pointer-events:none;max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .revealed .sec,.revealed .edict,.revealed .daycard,.revealed .carriages,.revealed .menuwrap,.revealed .chef,
+  .revealed details.ops,.revealed .fam,.revealed .cakebox,.revealed .pledge,.revealed .foot,.revealed .medal,
+  .revealed .lodge,.revealed .locate{animation:rise .6s ease both}
+  button:focus-visible,.scrollwrap:focus-visible,.crown-svg:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <canvas id="fx"></canvas>
+
+  <!-- 칙령 오프닝 -->
+  <div class="decree" id="decree">
+    <span class="petal" style="left:8%;animation-duration:9s">🌸</span>
+    <span class="petal" style="left:26%;animation-duration:12s;animation-delay:2.4s">🌸</span>
+    <span class="petal" style="left:47%;animation-duration:10s;animation-delay:5s;font-size:14px">🌸</span>
+    <span class="petal" style="left:66%;animation-duration:13s;animation-delay:1.2s">🌸</span>
+    <span class="petal" style="left:85%;animation-duration:11s;animation-delay:3.8s;font-size:15px">🌸</span>
+    <span class="dk-tw" style="left:15%;top:14%">✦</span>
+    <span class="dk-tw" style="left:82%;top:10%;animation-delay:.8s">✧</span>
+    <span class="dk-tw" style="left:68%;top:24%;animation-delay:1.6s">✦</span>
+    <span class="dk-tw" style="left:24%;top:30%;animation-delay:.4s">✧</span>
+    <span class="dk-tw" style="left:50%;top:80%;animation-delay:1.1s">✦</span>
+    <div class="dk-eyebrow">👑 <b>왕실</b>에서 온 칙령</div>
+    <div class="scrollwrap" id="scrollWrap" role="button" tabindex="0" aria-label="칙령 펼치기">
+      <div class="rod"></div>
+      <div class="parchment" id="parchment">
+        <div class="pm-inner">
+          <div class="pm-title">칙 령</div>
+          <div class="pm-div"></div>
+          <div class="pm-script">Princess Sora</div>
+          <p class="pm-line">왕국의 어여쁜 공주 <b>김소라</b>의<br>탄신을 축하하는 연회를 여노니,<br>왕실의 일원들은 <b>양양 별궁</b>으로<br>모두 모이시오.</p>
+          <div class="pm-div"></div>
+          <p class="pm-sm">2026. 8. 1 ~ 8. 2 · 兩陽 別宮</p>
+        </div>
+      </div>
+      <div class="rod"></div>
+      <div class="seal2"><div class="seal2-c">♛</div></div>
+    </div>
+    <div class="dk-hint">📜 인장을 눌러 칙령을 펼치시오</div>
+  </div>
+
+  <!-- ============ 포스터 ============ -->
+  <main class="poster">
+
+    <header class="crest">
+      <div class="frame"></div>
+      <span class="fl tl">❦</span><span class="fl tr">❦</span>
+      <svg class="crown-svg" id="crown" viewBox="0 0 96 62" aria-label="왕관">
+        <path d="M8,50 L4,20 L26,34 L48,10 L70,34 L92,20 L88,50 Z" fill="url(#gg)" stroke="#B08A1E" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="8" y="50" width="80" height="8" rx="3" fill="url(#gg)" stroke="#B08A1E" stroke-width="1.6"/>
+        <circle cx="48" cy="8" r="4.5" fill="#F08CAD" stroke="#C94477" stroke-width="1.4"/>
+        <circle cx="4.5" cy="18" r="3.4" fill="#C9B8E8" stroke="#9B85C9" stroke-width="1.2"/>
+        <circle cx="91.5" cy="18" r="3.4" fill="#C9B8E8" stroke="#9B85C9" stroke-width="1.2"/>
+        <circle cx="30" cy="54" r="2.6" fill="#F08CAD"/><circle cx="48" cy="54" r="2.6" fill="#fff"/><circle cx="66" cy="54" r="2.6" fill="#F08CAD"/>
+        <defs><linearGradient id="gg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#F5E3A8"/><stop offset=".55" stop-color="#D9AC33"/><stop offset="1" stop-color="#EBCB6F"/>
+        </linearGradient></defs>
+      </svg>
+      <div class="royal-eyebrow">ROYAL INVITATION</div>
+      <div class="script-name">Princess Sora</div>
+      <h1 class="balltitle"><span class="goldtext">소라 공주</span> 생일 연회</h1>
+      <div class="ball-sub">— 1박 2일 · 양양 어전 바베큐 —</div>
+      <div class="when-strip">
+        <span>📅 2026. 8. 1(토) ~ 8. 2(일)</span>
+        <span>🏰 강원 양양 별궁</span>
+        <span>👨‍👩‍👧‍👦 왕실 5인</span>
+      </div>
+      <div class="medal" id="medal" hidden>
+        <div class="medal-ring"><div class="medal-in">
+          <span class="medal-crown">👑</span>
+          <span class="medal-d" id="medalD">D-?</span>
+          <span class="medal-cap">TO THE BALL</span>
+        </div></div>
+        <div class="medal-sub" id="medalSub">연회까지</div>
+      </div>
+    </header>
+
+    <section class="edict">
+      <p>국왕 <b>김준호</b> 폐하와 왕비 <b>한혜숙</b> 마마의 어여쁜 딸,<br>
+      <b>소라 공주</b>의 탄신을 경축하는 연회를 여노라.<br>
+      왕실의 일원들은 팔월 초하루, 양양 별궁에 들어<br>
+      숯불에 어찬을 굽고 축배를 들지어다.</p>
+      <div class="sig">— 연회 준비위 · 부마 Jake &amp; 왕자 태진 —</div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-eyebrow">SCHEDULE</div>
+      <h2 class="sec-title">연회 일정</h2>
+      <div class="ornk">♛</div>
+    </section>
+    <div class="daycard">
+      <div class="dh"><b>첫째 날</b><span>8월 1일 토요일</span></div>
+      <div class="drow"><span class="t">08:00</span><span class="tx">제1어가 출발 <small>여의나루역 — 국왕·왕비·왕자</small></span></div>
+      <div class="drow"><span class="t">09:00</span><span class="tx">제2어가 합류 <small>별내역 — 공주·부마, 이후 나란히 양양으로</small></span></div>
+      <div class="drow"><span class="t">12:00</span><span class="tx">중식 <small>휴게소 또는 도착지 인근에서 간단히</small></span></div>
+      <div class="drow hl"><span class="t">15:00</span><span class="tx">🏰 별궁 입성 <small>체크인 &amp; 여장 풀기</small></span></div>
+      <div class="drow"><span class="t">16:00</span><span class="tx">수라간 가동 <small>연회 준비 개시 (작전표는 아래에)</small></span></div>
+      <div class="drow hl"><span class="t">18:00</span><span class="tx">🍖 왕실 바베큐 만찬</span></div>
+      <div class="drow"><span class="t">저녁</span><span class="tx">🎂 생일 축하식 <small>케이크 · 촛불 · 축배</small></span></div>
+    </div>
+    <div class="daycard">
+      <div class="dh"><b>둘째 날</b><span>8월 2일 일요일</span></div>
+      <div class="drow"><span class="t">아침</span><span class="tx">조식 <small>현장 상황에 따라 (뼈국 유력)</small></span></div>
+      <div class="drow"><span class="t">10:00</span><span class="tx">철거 &amp; 정리 정돈</span></div>
+      <div class="drow hl"><span class="t">11:00</span><span class="tx">퇴성 <small>체크아웃 — 안전 귀가</small></span></div>
+    </div>
+
+    <section class="sec">
+      <div class="sec-eyebrow">ROYAL PARADE</div>
+      <h2 class="sec-title">어가 행렬</h2>
+      <div class="ornk">♛</div>
+    </section>
+    <div class="carriages">
+      <div class="cg"><span class="ic">🫅</span><div>
+        <div class="nm">제1어가 · <b>여의나루역 08:00</b></div>
+        <div class="who">국왕 김준호 · 왕비 한혜숙 · 왕자 김태진</div>
+      </div></div>
+      <div class="cg"><span class="ic">👸</span><div>
+        <div class="nm">제2어가 · <b>별내역 합류</b></div>
+        <div class="who">소라 공주 · 부마 Jake — 여기서 만나 함께 출발!</div>
+      </div></div>
+    </div>
+    <p class="cg-note">🛤 서울양양고속도로를 따라 별궁까지 어가 행렬로 이동하오</p>
+
+    <section class="sec">
+      <div class="sec-eyebrow">THE PALACE</div>
+      <h2 class="sec-title">별궁 안내</h2>
+      <div class="ornk">♛</div>
+    </section>
+    <div class="lodge">
+      <div class="lodge-grid">
+        <div class="lg-card"><div class="ic">🏡</div><div class="tt">프라이빗 독채</div><div class="ds">강원 양양 · 거실+주방<br>침실(더블)·온돌룸·화장실 2</div></div>
+        <div class="lg-card"><div class="ic">🔥</div><div class="tt">참나무 바베큐</div><div class="ds">바베큐 그릴 + 불멍화로<br>(사전 신청 완료 필요)</div></div>
+        <div class="lg-card"><div class="ic">🥬</div><div class="tt">채소 텃밭</div><div class="ds">밭에서 쌈채소<br>마음껏 수확 가능!</div></div>
+        <div class="lg-card"><div class="ic">🅿️</div><div class="tt">편의</div><div class="ds">주차 · 와이파이 O<br>실내 금연</div></div>
+      </div>
+      <div class="mustknow">
+        <div class="mh">— 어명, 꼭 지킬 것 —</div>
+        <ul>
+          <li>🕒 입실 <b>15:00</b> · 퇴실 <b>11:00</b> (엄수)</li>
+          <li>💰 체크인 시 보증금 <b>3만원(현금)</b> — 이상 없으면 퇴실 후 반환</li>
+        </ul>
+      </div>
+    </div>
+    <div class="locate"><a href="https://www.airbnb.co.kr/rooms/1109899184871290464?check_in=2026-08-01&check_out=2026-08-02&adults=5" target="_blank" rel="noopener">🏰 별궁 위치 · 예약 확인</a></div>
+
+    <section class="sec">
+      <div class="sec-eyebrow">ROYAL FEAST</div>
+      <h2 class="sec-title">왕실 만찬 메뉴판</h2>
+      <div class="ornk">♛</div>
+    </section>
+    <div class="m-legend"><span><span class="on-dot"></span>확정 어찬</span><span><span class="off-dot"></span>예비 진상 목록</span></div>
+    <div class="menuwrap" id="royalMenu"></div>
+    <div class="chef">
+      <h5>— 수라간 어선사 —</h5>
+      <p>👨‍🍳 <b>부마 Jake</b> · 마라롱샤 / 베이징덕 &amp; 밀전병쌈 / 볶음밥 / 뼈국</p>
+      <p>🔥 <b>왕자 태진</b> · 티본 스테이크 / 꼬치류(품목 미정 ???)</p>
+    </div>
+
+    <details class="ops">
+      <summary>📜 수라간 작전표 &amp; 왕실 물자 목록</summary>
+      <div class="ops-body">
+        <div class="op"><span class="t">16:00</span><span class="tx">준비·위생 점검 — 작업대 소독, 도구 배치, 식재료 검수 (고기 상온 대기)</span></div>
+        <div class="op"><span class="t">16:15</span><span class="tx">크리티컬 패스 — 물 끓이기·불 피우기·디핑소스·계란물</span></div>
+        <div class="op"><span class="t">16:35</span><span class="tx">미장플라스 — 육류 정형, 어패류 시즈닝, 채소 손질</span></div>
+        <div class="op"><span class="t">16:50</span><span class="tx">에피타이저 조리 — 소스 완성 · 가재 데치기</span></div>
+        <div class="op"><span class="t">17:00</span><span class="tx">가재 팬프라이 &amp; 숯 이동 · 접시 워밍</span></div>
+        <div class="op hl"><span class="t">17:15</span><span class="tx">✨ 에피타이저 서빙 (마라롱샤)</span></div>
+        <div class="op"><span class="t">17:20</span><span class="tx">베이징덕 코팅 &amp; 바베큐 훈연 투입</span></div>
+        <div class="op"><span class="t">17:25</span><span class="tx">볶음밥 조리 (마지막에 오리 가니쉬)</span></div>
+        <div class="op"><span class="t">17:35</span><span class="tx">베이징덕 해체 &amp; 플레이팅</span></div>
+        <div class="op"><span class="t">17:45</span><span class="tx">뼈국 졸이기 — 식사 중간쯤 서빙</span></div>
+        <div class="op hl"><span class="t">18:00</span><span class="tx">🍽 만찬 서빙 — 연회 개시!</span></div>
+        <div class="op"><span class="t">이후</span><span class="tx">도구 세척·작업대 복구 (뼈국 제외)</span></div>
+        <div class="tools">
+          <h6>— 왕실 물자 목록 —</h6>
+          <div class="tool-chips">
+            <span>버너 ×1</span><span>그릴 ×1</span><span>냄비(대) ×1</span><span>볼(소) ×1</span><span>볼(어패류·채소) ×2</span>
+            <span>도마</span><span>칼</span><span>소스냄비(소) ×1</span><span>가재냄비(중) ×1</span><span>팬 ×3</span>
+            <span>대왕솥 ×1</span><span>대접시 ×1</span><span>접시 ×2</span><span>냄비 ×1</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <section class="sec">
+      <div class="sec-eyebrow">ROYAL FAMILY</div>
+      <h2 class="sec-title">왕실 구성원</h2>
+      <div class="ornk">♛</div>
+    </section>
+    <div class="fam">
+      <div class="fm star"><div class="av">👸</div><div class="ti">HER HIGHNESS</div><div class="nm">소라 공주</div><div class="rl">오늘의 주인공 · 생일자 김소라</div></div>
+      <div class="fm"><div class="av">🤴</div><div class="ti">KING</div><div class="nm">국왕 김준호</div><div class="rl">아버지 폐하</div></div>
+      <div class="fm"><div class="av">👑</div><div class="ti">QUEEN</div><div class="nm">왕비 한혜숙</div><div class="rl">어머니 마마</div></div>
+      <div class="fm"><div class="av">🤵</div><div class="ti">PRINCE CONSORT</div><div class="nm">부마 Jake</div><div class="rl">공주의 남편 · 수라간 총괄</div></div>
+      <div class="fm"><div class="av">🫅</div><div class="ti">PRINCE</div><div class="nm">왕자 김태진</div><div class="rl">동생 · 불의 마법사(그릴 담당)</div></div>
+    </div>
+
+    <section class="sec">
+      <div class="sec-eyebrow">MAKE A WISH</div>
+      <h2 class="sec-title">촛불을 꺼주시오</h2>
+      <div class="ornk">♛</div>
+    </section>
+    <div class="cakebox">
+      <p class="cake-hint">촛불 다섯 — 왕실 가족의 수만큼. <b>톡톡 눌러 모두 꺼주시오</b> 🕯</p>
+      <div class="cake">
+        <div class="plate"></div>
+        <div class="tier t1"></div><div class="tier t2"></div><div class="tier t3"></div>
+        <div class="candles" id="candles">
+          <button class="cnd" aria-label="촛불 1"><span class="flame"></span><span class="stick"></span><span class="puff"></span></button>
+          <button class="cnd" aria-label="촛불 2"><span class="flame"></span><span class="stick"></span><span class="puff"></span></button>
+          <button class="cnd" aria-label="촛불 3"><span class="flame"></span><span class="stick"></span><span class="puff"></span></button>
+          <button class="cnd" aria-label="촛불 4"><span class="flame"></span><span class="stick"></span><span class="puff"></span></button>
+          <button class="cnd" aria-label="촛불 5"><span class="flame"></span><span class="stick"></span><span class="puff"></span></button>
+        </div>
+      </div>
+      <div class="cake-cheer" id="cakeCheer"></div>
+    </div>
+
+    <div class="pledge" id="pledge">
+      <div class="q">공주님의 연회, 참석을 맹세하시오 👑</div>
+      <div class="row">
+        <button class="btn-oath" id="oath">맹세하옵니다 ♛</button>
+        <button class="btn-nope" id="nope">불참하겠소...</button>
+      </div>
+      <div class="pledge-alert" id="pledgeAlert" role="status"></div>
+      <div class="done-msg">맹세가 접수되었소. 팔월 초하루, 별궁에서 뵙겠소 👑</div>
+    </div>
+
+    <footer class="foot">
+      <div class="dress">👗 드레스코드 — 핑크 혹은 반짝이는 것 하나 이상</div>
+      <div class="scr">Long live the Princess</div>
+      <div class="committee">ROYAL BANQUET COMMITTEE · JAKE &amp; TAEJIN</div>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+/* ===== 메뉴 데이터 (파랑=확정 on / 회색=예비 off, ?=미정) ===== */
+const MENU=[
+  {cat:'고기류 (2~3종 선택)', on:['소','양','오리','민물가재'], off:['생선','돼지','닭']},
+  {cat:'메인', on:['마라롱샤','베이징덕 & 밀전병쌈','볶음밥','뼈국','티본 스테이크'], off:[], q:['꼬치류(품목 미정)']},
+  {cat:'국거리', on:['라면'], off:['홍합탕','제첩국','오뎅탕','김치찌개','바지락국','미역국','누룽지탕','쌀국수','샤브샤브','바지락술찜']},
+  {cat:'디저트 · 사이드', on:['계절과일'], q:['쌈 채소','미니케익'], off:['치즈플레터','나쵸','소고기 타다키','콘치즈','샐러드','양꼬치']},
+  {cat:'주종', on:['고량주','맥주'], off:['와인(레드/화이트)','사케','위스키','칵테일','샴페인']},
+];
+document.getElementById('royalMenu').innerHTML = MENU.map(m=>{
+  const chips=[
+    ...m.on.map(x=>`<span class="mi on">${x}</span>`),
+    ...(m.q||[]).map(x=>`<span class="mi on q">${x}</span>`),
+    ...m.off.map(x=>`<span class="mi off">${x}</span>`)
+  ].join('');
+  return `<div class="m-cat"><h4>${m.cat}</h4><div class="m-items">${chips}</div></div>`;
+}).join('');
+
+/* ===== D-day (연회일 2026-08-01 고정) ===== */
+(function(){
+  const t=new Date(2026,7,1), n=new Date(), today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  const d=Math.round((t-today)/86400000);
+  const el=document.getElementById('medal'); if(d<0) return;
+  document.getElementById('medalD').textContent = d===0?'D-DAY':'D-'+d;
+  document.getElementById('medalSub').textContent = d===0?'오늘, 연회의 날 👑':(d<=7?'연회 임박 — 두근두근':'연회까지');
+  el.removeAttribute('hidden');
+})();
+
+/* ===== 금가루+하트 confetti ===== */
+const cv=document.getElementById('fx'), cx=cv.getContext('2d'); let parts=[], raf=null;
+function size(){ const d=window.devicePixelRatio||1; cv.width=innerWidth*d; cv.height=innerHeight*d; cx.setTransform(d,0,0,d,0,0); }
+size(); addEventListener('resize',size);
+const COLORS=['#E8C766','#C9A227','#F08CAD','#E85C8F','#F5E3A8','#C9B8E8'];
+function burst(x,y,n=46){
+  for(let i=0;i<n;i++){ const a=Math.random()*Math.PI*2, sp=3+Math.random()*6;
+    parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-4,g:.17+Math.random()*.12,life:1,
+      s:7+Math.random()*9,rot:Math.random()*6,vr:(Math.random()-.5)*.3,c:COLORS[i%COLORS.length],heart:Math.random()<.4}); }
+  if(!raf) tick();
+}
+function heart(px,py,s,rot,c){ cx.save();cx.translate(px,py);cx.rotate(rot);cx.scale(s/16,s/16);cx.fillStyle=c;
+  cx.beginPath();cx.moveTo(0,4);cx.bezierCurveTo(-8,-6,-16,4,0,14);cx.bezierCurveTo(16,4,8,-6,0,4);cx.fill();cx.restore(); }
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height); let alive=false;
+  for(const p of parts){ if(p.life<=0)continue; alive=true; p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life-=.012;
+    cx.globalAlpha=Math.max(0,p.life);
+    if(p.heart) heart(p.x,p.y,p.s,p.rot,p.c);
+    else{ cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.62);cx.restore(); } }
+  cx.globalAlpha=1; parts=parts.filter(p=>p.life>0);
+  if(alive) raf=requestAnimationFrame(tick); else raf=null;
+}
+
+/* ===== 칙령 오프닝 ===== */
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let opened=false;
+function openDecree(){
+  if(opened) return; opened=true;
+  const d=document.getElementById('decree');
+  d.classList.add('opening');
+  burst(innerWidth/2, innerHeight*0.42, 40);
+  setTimeout(()=>{ burst(innerWidth/2, innerHeight*0.3, 52);
+    d.classList.add('gone'); setTimeout(()=>d.setAttribute('hidden',''),900);
+    document.body.classList.add('revealed');
+  }, reduce?0:1750);
+}
+const sw=document.getElementById('scrollWrap');
+if(reduce){ document.getElementById('decree').setAttribute('hidden',''); document.body.classList.add('revealed'); }
+else{
+  sw.addEventListener('click', openDecree, {once:true});
+  sw.addEventListener('keydown', function kd(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); sw.removeEventListener('keydown',kd); openDecree(); } });
+}
+
+/* ===== 마법가루 터치 트레일 ===== */
+let lastSpark=0;
+function trail(x,y){
+  const now=performance.now(); if(now-lastSpark<70) return; lastSpark=now;
+  const s=document.createElement('span'); s.className='spark'; s.textContent=Math.random()<.5?'✦':'✧';
+  s.style.left=(x-6)+'px'; s.style.top=(y-6)+'px';
+  document.body.appendChild(s); setTimeout(()=>s.remove(),850);
+}
+if(!reduce){
+  addEventListener('pointermove',e=>trail(e.clientX,e.clientY),{passive:true});
+  addEventListener('touchmove',e=>{const t=e.touches[0]; if(t) trail(t.clientX,t.clientY);},{passive:true});
+}
+
+/* ===== 왕관 탭 → 보석 팡 ===== */
+document.getElementById('crown').addEventListener('click',e=>{
+  const r=e.currentTarget.getBoundingClientRect();
+  burst(r.left+r.width/2, r.top+r.height/2, 24);
+  toast('👑 공주님 만세!');
+});
+
+/* ===== 케이크 촛불 ===== */
+const WISHES=['한 개 껐어요! 후—','좋아요, 두 개!','절반 넘었어요 🕯','하나 남았… 아니 두 개!','마지막 하나!'];
+let outCount=0;
+document.querySelectorAll('.cnd').forEach(c=>{
+  c.addEventListener('click',()=>{
+    if(c.classList.contains('out')) return;
+    c.classList.add('out'); outCount++;
+    const cheer=document.getElementById('cakeCheer');
+    if(outCount<5){
+      cheer.textContent=`후— (${outCount}/5)`;
+      cheer.classList.add('show');
+    }else{
+      const r=c.getBoundingClientRect();
+      burst(r.left, r.top, 60); setTimeout(()=>burst(innerWidth/2, r.top+40, 40), 250);
+      cheer.textContent='🎉 소원이 접수되었습니다 — 생일 축하해요, 소라 공주님! 👸';
+      cheer.classList.add('show');
+      toast('👑 왕실 공식 소원 접수 완료');
+    }
+  });
+});
+
+/* ===== 참석 서약 ===== */
+const NOPE_MSGS=[
+  '💂 근위병: 불참은 반역이오!',
+  '💂 근위병: 다시 한번 잘 생각해 보시오...',
+  '💂 근위병: 좋소. 대신 케이크는 없소. …농담이오, 맹세로 처리하겠소 👑'
+];
+let nopeTries=0, pledged=false;
+const pledge=document.getElementById('pledge');
+function pledgeAlert(m){ const a=document.getElementById('pledgeAlert'); a.textContent=m;
+  a.classList.remove('show'); a.getBoundingClientRect(); a.classList.add('show'); }
+function doPledge(msg){
+  if(pledged) return; pledged=true;
+  pledge.classList.add('done');
+  document.getElementById('nope').style.display='none';
+  document.getElementById('pledgeAlert').classList.remove('show');
+  const r=document.getElementById('oath').getBoundingClientRect();
+  burst(r.left+r.width/2, r.top+r.height/2, 55);
+  toast(msg||'맹세 접수 완료! 👑');
+}
+document.getElementById('oath').addEventListener('click',()=>doPledge());
+document.getElementById('nope').addEventListener('click',()=>{
+  if(pledged) return;
+  nopeTries++;
+  pledge.classList.remove('shake'); pledge.getBoundingClientRect(); pledge.classList.add('shake');
+  pledgeAlert(NOPE_MSGS[Math.min(nopeTries,NOPE_MSGS.length)-1]);
+  if(nopeTries>=3) setTimeout(()=>doPledge('근위병에 의해 맹세 처리되었소 💂👑'), 700);
+});
+
+/* ===== toast ===== */
+let tT=null;
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(tT); tT=setTimeout(()=>t.classList.remove('show'),2300); }
+</script>
+</body>
+</html>
